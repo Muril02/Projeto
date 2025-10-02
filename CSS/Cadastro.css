@@ -1,0 +1,136 @@
+/* CSS INTEGRADO para replicar o design de Login */
+        
+        /* --- 1. Estrutura e Reset Básico --- */
+        body {
+            background-color: #ffffff; 
+            font-family: Arial, sans-serif;
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+        }
+
+        /* Container da Tela Dividida */
+        .split-screen-container {
+            display: flex;
+            width: 100%;
+            min-height: 100vh;
+        }
+
+        /* --- 2. Seção Esquerda (Logo e Fundo Escuro) --- */
+        .left-section {
+            background-color: #1e1e1e; /* Fundo preto/escuro */
+            width: 40%; 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-sizing: border-box;
+        }
+
+        /* Estilo para o texto TECHFIT */
+        .techfit-logo-text {
+            font-size: 3em;
+            font-weight: bold;
+            color: #ffffff; 
+        }
+        
+        /* Ajuste para o "FIT" em amarelo */
+        .techfit-logo-text span {
+            color: #ffff00; /* Amarelo */
+        }
+
+        /* --- 3. Seção Direita (Formulário) --- */
+        .right-section {
+            background-color: #ffffff; 
+            width: 60%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .form-wrapper {
+            width: 100%;
+            max-width: 350px; 
+            text-align: center;
+        }
+
+        .form-title {
+            font-size: 1.8em;
+            color: #000000; 
+            margin-bottom: 30px;
+            font-weight: 600;
+        }
+
+        /* --- 4. Inputs e Ícones --- */
+        .input-group {
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        .input-group input {
+            width: 100%;
+            padding: 15px 15px 15px 45px; /* Padding à esquerda para o ícone */
+            border: none;
+            border-radius: 8px; 
+            box-sizing: border-box;
+            font-size: 16px;
+            background-color: #f7eaea; /* Cor rosada clara */
+            color: #333333;
+        }
+
+        .input-group .icon {
+            position: absolute;
+            top: 50%;
+            left: 15px; 
+            transform: translateY(-50%);
+            color: #999999; 
+            font-size: 1.1em;
+        }
+
+        /* --- 5. Botões e Mensagens --- */
+        .btn {
+            width: 100%;
+            padding: 15px;
+            border: none;
+            border-radius: 8px; 
+            cursor: pointer;
+            font-size: 17px;
+            font-weight: bold;
+            margin-top: 15px;
+            transition: background-color 0.3s;
+            text-transform: uppercase;
+        }
+
+        /* Botão Principal (ENTRAR) - Preto */
+        .btn-primary { 
+            background-color: #000000;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: #333333;
+        }
+
+        .message {
+            color: red;
+            margin-top: 10px;
+            display: none; 
+            font-size: 0.9em;
+        }
+
+        /* --- 6. Links Adicionais --- */
+        .form-links {
+            margin-top: 30px;
+            font-size: 0.9em;
+        }
+
+        .form-links a {
+            color: #666666;
+            text-decoration: none;
+            display: block;
+            line-height: 2;
+        }
+
+        .form-links a:hover {
+            color: #000000;
+        }
