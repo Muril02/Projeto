@@ -1,15 +1,221 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
-.imgBanner{
-    margin-bottom: 200px;
+/* Variáveis de Cores */
+:root {
+    --cor-primaria: #000000; /* Preto (Base) */
+    --cor-secundaria: #333333; /* Cinza Escuro (Textos e Fundos Secundários) */
+    --cor-destaque: #ffc107; /* Amarelo/Aviso (Botões, links de ação, destaque) */
+    --cor-fundo-principal: #EDEDED; /* NOVO NOME: Fundo da página (cinza claro) */
+    --cor-texto-claro: #FAFAFA; /* Off-white para textos em fundos escuros e header/cards */
 }
 
-body{
+/* Base e Tipografia */
+/* Aplicamos a cor de fundo tanto no HTML quanto no BODY com !important, garantindo a prioridade */
+html {
+    background-color: var(--cor-fundo-principal);
+}
+
+body {
     margin: 0;
     padding: 0;
-    font-style: "Poppins";
+    font-family: 'Poppins', sans-serif;
+    /* A classe do Boostrap pode estar sobrescrevendo, então forçamos com !important */
+    background-color: var(--cor-fundo-principal) !important; 
+    color: var(--cor-secundaria);
 }
 
-.border-card{
-    border: 1px solid rgba(0, 0, 0, .2);
+h3 {
+    color: var(--cor-primaria);
+    font-weight: 700;
+    margin-bottom: 40px !important;
+}
+
+p {
+    line-height: 1.6;
+}
+
+/* Header e Navegação */
+header {
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: var(--cor-texto-claro);
+}
+
+.navbar-brand {
+    color: var(--cor-primaria) !important;
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+
+.navbar-nav .nav-link {
+    color: var(--cor-secundaria) !important;
+    font-weight: 500;
+    margin-right: 15px;
+    transition: color 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover {
+    color: var(--cor-destaque) !important;
+}
+
+/* Seções Principais */
+main {
+    padding-top: 20px;
+}
+
+.bannerHome {
+    position: relative;
+    margin-bottom: 200px;
+    height: 450px;
+    background-image: url('/FotosSite/Home.png');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bannerHome::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
+
+.banner-text {
+    position: relative;
+    z-index: 2;
+    color: var(--cor-texto-claro);
+    text-align: center;
+    width: 80%;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+.banner-text h1 {
+    font-size: 3.5rem;
+    font-weight: 800;
+    margin: 0;
+    color: var(--cor-destaque);
+}
+
+/* Estilo para a Seção de Destaques (Abaixo do Banner) */
+.container .row h4 {
+    color: var(--cor-destaque);
+    font-weight: 700;
+    font-size: 1.35rem;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    border-left: 4px solid var(--cor-destaque);
+    padding-left: 10px;
+}
+
+.container .row .col-6 p {
+    font-size: 1rem;
+    text-align: justify;
+    padding-left: 14px;
+}
+
+
+/* Cards (Turmas e Planos) */
+.card {
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15) !important;
+}
+
+.border-card {
+    border: none !important;
+}
+
+.card-img {
+    height: 200px;
+    object-fit: cover;
+}
+
+/* Cards de Testemunhos */
+.container .row .card.col-3 {
+    border: 1px solid #e9ecef;
+    background-color: var(--cor-texto-claro);
+}
+
+.container .row .card.col-3 .card-title {
+    color: var(--cor-primaria);
+    font-weight: 600;
+}
+
+.container .row .card.col-3 i.bi {
+    color: var(--cor-destaque);
+    font-size: 1.5rem;
+}
+
+/* Footer */
+footer {
+    background-color: var(--cor-primaria) !important;
+    color: var(--cor-texto-claro) !important;
+    padding: 40px 0;
+    margin-top: 150px;
+    font-family: 'Poppins', sans-serif;
+}
+
+footer h4 {
+    color: var(--cor-destaque);
+    font-weight: 600;
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+}
+
+footer p {
+    margin-bottom: 5px;
+    font-size: 0.9rem;
+    color: #cccccc;
+}
+
+footer .bi {
+    font-size: 1.5rem;
+    margin: 0 8px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+footer .bi:hover {
+    color: var(--cor-destaque);
+}
+
+/* Botões */
+.btn-warning {
+    background-color: var(--cor-destaque) !important;
+    border-color: var(--cor-destaque) !important;
+    color: var(--cor-primaria) !important;
+    font-weight: 700 !important;
+    transition: background-color 0.3s ease;
+}
+
+.btn-warning:hover {
+    background-color: #e0a800 !important;
+    border-color: #e0a800 !important;
+}
+
+/* Ajustes de margem/espaçamento */
+.container {
+    max-width: 1200px;
+}
+
+.container > div[style*="margin-bottom: 200px"] {
+    margin-bottom: 120px !important;
+}
+
+.container > div[style*="margin-top: 200px"] {
+    margin-top: 100px !important;
+}
+
+.container > div[style*="margin-top: 100px"] {
+    margin-top: 80px !important;
 }
