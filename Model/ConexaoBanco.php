@@ -4,26 +4,29 @@
 class ConexaoBanco
 {
 
-    private $db;
+    private static $db = null;
 
-    public function __construct()
+    public static function getConexao()
     {
-        $dsn = "mysql:host=localhost;dbname=tech_fit;charset=utf8mb4";
-        $user = "root";
-        $password = "Murilo1235@";
-       
-        try{
-            $this->db = new PDO(
-                $dsn,
-                $user,
-                $password
-            );
-        }catch(PDOException $e){
-            die("Erro ao conectar" . $e->getMessage());
+        if(self::$db == null){
+            $dsn = "mysql:host=localhost;dbname=tech_fit;charset=utf8mb4";
+            $user = "root";
+            $password = "Murilo1235@";
+           
+            try{
+                self::$db = new PDO(
+                    $dsn,
+                    $user,
+                    $password
+                );
+                self::$db->setAttribute(
+                    PDO::ATTR_ERRMODE,
+                    PDO::ERRMODE_EXCEPTION
+                );
+            }catch(PDOException $e){
+                die("Erro ao conectar" . $e->getMessage() . phpInfo());
+            }
         }
-    }
-
-    public function getDb(){
-        return $this->db;
+        return self::$db;
     }
 }
