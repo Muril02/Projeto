@@ -55,15 +55,14 @@ class ClienteDAO{
 
         $result->execute([$senhaHash, $id]);
     }
-
 }
 
 // $teste = new ClienteModel("Teste", "2023-05-15", "982747570", "rodolfo@dssdf",
 //  "geladeiratsunami", "890274", null);
-$DAO = new ClienteDAO();
-$DAO->AtualizarCliente(2, "Atualizado", "2008-09-30", "47593749", "atualizado@gmail.com",
-    "58408698"
-);
+// $DAO = new ClienteDAO();
+// $DAO->AtualizarCliente(2, "Atualizado", "2008-09-30", "47593749", "atualizado@gmail.com",
+//     "58408698"
+// );
 // $DAO->ExcluirCliente(1);
 // $DAO->InsertCliente($teste);
 // var_dump($teste);
