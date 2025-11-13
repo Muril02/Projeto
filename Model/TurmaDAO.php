@@ -17,9 +17,8 @@ class TurmaDAO{
         $descricao = $turma->getDescricao(); 
         $horario = $turma->getHorario();
         $idProf = $turma->getIdProfessor();
- 
 
-        $query = "INSERT INTO Turmas(nome, capacidade, descricao, horario, idProfessor) VALUES (?, ?, ?, ?, ?)";
+        $query = "INSERT INTO Turma(nome, capacidade, descricao, horario, idProfessor) VALUES (?, ?, ?, ?, ?)";
         $result = $this->db->prepare($query);
         $result->execute([$nome, $capacidade, $descricao, $horario,$idProf]);
     }
@@ -52,3 +51,14 @@ class TurmaDAO{
         $result->execute([$idProfNovo, $id]);
     }
 }
+
+
+// $teste = new Turma("Fit dance", 30, "Uma aula legal de fit dance", "19:30", 1);
+
+// $DAO = new TurmaDAO();
+// $DAO->AtualizarTurma(2, "Cross fit", 15, "Aula de cross fit", "20:00",
+//     // null
+// );
+// $DAO->ExcluirTurma(1);
+// $DAO->InsertTurma($teste);
+// var_dump($teste);
