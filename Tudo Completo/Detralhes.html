@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechFit - Planos e Turmas</title>
+    <!-- Fontes e Ícones -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    
+    <style>
+        /* ======== RESET E FONTES ======== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            background-color: #ffffff;
+            color: #222;
+            line-height: 1.6;
+        }
+        
+        /* Otimização de Layout para o corpo da página */
+        .page-wrapper {
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        .main-content {
+            flex-grow: 1; /* Garante que o conteúdo principal empurra o rodapé para baixo */
+        }
+
+        /* ======== CABEÇALHO (FUNDO PRETO) ======== */
+        .main-header {
+            background-color: #000; /* Fundo Preto */
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            border-bottom: 1px solid #000; 
+        }
+
+        /* LOGO TECHFIT */
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: #fff; /* Cor do TECH é BRANCA no fundo preto */
+        }
+
+        .logo-accent {
+            color: #ffb300; /* Cor de destaque: FIT é amarelo */
+        }
+        /* Fim dos ajustes do logo */
+
+        .main-nav {
+            display: flex;
+            align-items: center;
+        }
+
+        .main-nav a {
+            text-decoration: none;
+            color: #fff; /* Cor dos links é BRANCA no fundo preto */
+            font-weight: 500;
+            margin-left: 20px;
+            transition: color 0.3s;
+            padding: 5px 10px; /* Adicionado para facilitar o toque/clique */
+        }
+
+        .main-nav a:hover:not(.nav-button) {
+            color: #ffb300; /* Hover nos links normais */
+        }
+        
+        /* Novo estilo para o botão "Entrar" na navegação */
+        .main-nav .nav-button {
+            background-color: #ffb300;
+            color: #000 !important; /* Cor do texto preta no botão amarelo */
+            padding: 8px 15px;
+            border-radius: 25px;
+            font-weight: 600;
+            margin-left: 20px;
+            transition: background 0.3s;
+            line-height: 1; /* Alinha o texto dentro do botão */
+            text-align: center;
+        }
+
+        .main-nav .nav-button:hover {
+            background-color: #e09e00;
+            color: #000 !important;
+        }
+        /* Fim do estilo do botão */
+
+        /* ======== CONTEÚDO PRINCIPAL ======== */
+        .main-content {
+            text-align: center;
+            padding: 50px 20px;
+        }
+
+        .main-title {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 40px;
+            line-height: 1.2;
+        }
+
+        /* ======== BARRA DE PESQUISA ======== */
+        .search-section {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 40px;
+        }
+
+        .search-bar {
+            display: flex;
+            align-items: center;
+            border: 1px solid #ccc;
+            border-radius: 25px;
+            padding: 10px 15px;
+            width: 100%; 
+            max-width: 350px; 
+        }
+
+        .search-icon {
+            color: #999;
+            margin-right: 10px;
+        }
+
+        .search-bar input {
+            border: none;
+            outline: none;
+            width: 100%;
+            font-size: 0.9rem;
+        }
+
+        .filter-button {
+            background-color: #ffb300;
+            border: none;
+            color: #000; 
+            padding: 10px 20px;
+            border-radius: 25px;
+            cursor: pointer;
+            font-weight: 600;
+            transition: background 0.3s;
+        }
+
+        .filter-button:hover {
+            background-color: #e09e00;
+        }
+
+        /* ======== CARDS ======== */
+        .class-cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            justify-content: center;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        /* Card padrão */
+        .card {
+            background-color: #fff;
+            border: 1px solid #e0e0e0;
+            border-radius: 15px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+            text-align: left;
+            padding: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+        }
+
+        .card-header {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #111;
+            margin-bottom: 15px;
+        }
+
+        .card-body p {
+            font-size: 0.9rem;
+            color: #444;
+            margin-bottom: 8px;
+        }
+
+        .value strong {
+            font-size: 1.1rem;
+            color: #000;
+        }
+
+        /* ======== CARD DESTACADO (Plano Básico) ======== */
+        .card:first-of-type {
+            background-color: #e7ca86; 
+            border: 2px solid #ffb300;
+            position: relative;
+        }
+        
+        .card:first-of-type .card-header,
+        .card:first-of-type .card-body p,
+        .card:first-of-type .value strong {
+            color: #222; 
+        }
+
+        .card:first-of-type::before {
+            content: "Mais vantajoso";
+            position: absolute;
+            top: -12px;
+            left: 20px;
+            background-color: #ffb300;
+            color: #000;
+            font-weight: 600;
+            font-size: 0.75rem;
+            padding: 4px 10px;
+            border-radius: 10px;
+        }
+
+        /* ======== BOTÃO ======== */
+        .action-button {
+            margin-top: 15px;
+            width: 100%;
+            padding: 12px 0;
+            border: none;
+            border-radius: 25px;
+            background-color: #ffb300;
+            color: #000;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .action-button:hover {
+            background-color: #e09e00;
+        }
+
+        /* ======== RODAPÉ (PRETO) ======== */
+        .main-footer {
+            background-color: #000; /* Fundo Preto */
+            padding: 40px 20px;
+            margin-top: 60px;
+            border-top: none; 
+        }
+
+        .footer-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 25px;
+            text-align: center;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .footer-content h3 {
+            color: #fff; /* Títulos em branco */
+            margin-bottom: 10px;
+            font-size: 1rem;
+        }
+
+        .footer-content p, .footer-content a {
+            color: #ccc; /* Texto e links em cinza claro */
+            text-decoration: none;
+            font-size: 0.9rem;
+        }
+
+        /* Mudar cor do link do email para amarelo */
+        .footer-content .contact a {
+            color: #ffb300;
+            transition: color 0.3s;
+        }
+        .footer-content .contact a:hover {
+            color: #fff;
+        }
+
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            justify-content: center;
+        }
+
+        .social-icons a {
+            color: #000; /* Ícone preto */
+            font-size: 1.1rem;
+            background: #fff; /* Fundo branco para os ícones no rodapé preto */
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s;
+        }
+
+        .social-icons a:hover {
+            background-color: #ffb300; /* Hover em amarelo */
+            color: #000; 
+        }
+
+        /* ======== RESPONSIVO ======== */
+        @media (min-width: 800px) {
+            .footer-content {
+                flex-direction: row;
+                justify-content: space-around;
+                text-align: left;
+            }
+            .search-bar {
+                width: 300px;
+            }
+            .main-title {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page-wrapper">
+    
+        <header class="main-header">
+            <!-- Estrutura do Logo Modificada -->
+            <div class="logo">
+                TECH<span class="logo-accent">FIT</span>
+            </div>
+            <nav class="main-nav">
+                <a href="home.html">Voltar</a> 
+             
+                <a href="#" class="nav-button">Entrar</a> 
+            </nav>
+        </header>
+
+        <main class="main-content">
+            <h1 class="main-title">Encontre<br>o plano que combina com você!</h1>
+
+            <section class="search-section">
+                <div class="search-bar">
+                    <i class="fas fa-search search-icon"></i>
+                    <input type="text" placeholder="Buscar planos ou aulas" aria-label="Buscar planos ou aulas">
+                </div>
+                <button class="filter-button">Filtrar</button>
+            </section>
+
+            <section class="class-cards">
+
+                <!-- CARD DESTACADO (Plano Básico) -->
+                <article class="card">
+                    <div class="card-header">Plano Básico</div>
+                    <div class="card-body">
+                        <p class="value">Valor: <strong>R$ 89,90/mês</strong></p>
+                        <p class="schedule">Aulas: 3x por semana</p>
+                        <p class="teacher">Professor principal: Roberto</p>
+                        <button class="action-button">Detalhes</button>
+                    </div>
+                </article>
+
+                <article class="card">
+                    <div class="card-header">Plano Avançado</div>
+                    <div class="card-body">
+                        <p class="value">Valor: <strong>R$ 120,90/mês</strong></p>
+                        <p class="schedule">Aulas: 4x por semana</p>
+                        <p class="teacher">Professor principal: Ana</p>
+                        <button class="action-button">Detalhes</button>
+                    </div>
+                </article>
+
+                <article class="card">
+                    <div class="card-header">Plano PRO</div>
+                    <div class="card-body">
+                        <p class="value">Valor: <strong>R$ 169,90/mês</strong></p>
+                        <p class="schedule">Aulas: Ilimitadas</p>
+                        <p class="teacher">Professor principal: Bruno</p>
+                        <button class="action-button">Detalhes</button>
+                    </div>
+                </article>
+
+            </section>
+        </main>
+    
+        <footer class="main-footer">
+            <div class="footer-content">
+                <div class="contact">
+                    <h3>Contato</h3>
+                    <p>Telefone: (19) 4002-8922</p>
+                    <p>Email: <a href="mailto:emailtocaaqui@gmail.com">TechFit@.com</a></p>
+                </div>
+                <div class="social-media">
+                    <h3>Redes Sociais</h3>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-instagram icon"></i></a>
+                        <a href="#"><i class="fab fa-twitter icon"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f icon"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in icon"></i></a> 
+                    </div>
+                </div>
+            </div>
+        </footer>
+    </div>
+</body>
+
+</html>
