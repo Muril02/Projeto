@@ -21,8 +21,5 @@ class LoginController{
         }else{
             header("localhost:8000/index.php");
         }
-
-
     }
-
 }
