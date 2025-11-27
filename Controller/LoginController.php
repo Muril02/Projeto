@@ -1,7 +1,7 @@
 <?php
-
-require_once "ConexaoBanco.php";
-require_once "LoginModel.php";
+session_start();
+require_once "../Model/ConexaoBanco.php";
+require_once "../Model/LoginModel.php";
 
 class LoginController{
 
@@ -19,7 +19,11 @@ class LoginController{
             echo "Erro ao logar!";
 
         }else{
-            header("localhost:8000/index.php");
+            header("Location: /View/index.php");
         }
+    }
+
+    public function Sair(){
+        unset($_SESSION["IdUsuario"]);
     }
 }

@@ -1,0 +1,163 @@
+/* Variáveis de Cores Smart Fit */
+:root {
+    --smartfit-orange: #ffc400;
+    --text-dark: #333333;
+    --text-light: #ffffff;
+    --border-color: #cccccc;
+    --background-light: #f4f4f4;
+}
+
+/* ======== RESET E BASE ======== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    color: var(--text-dark);
+    line-height: 1.5;
+    background-color: var(--background-light);
+}
+
+.page-container {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: var(--text-light);
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+    padding: 30px;
+}
+
+a {
+    color: var(--smartfit-orange);
+    text-decoration: none;
+}
+
+/* ======== CABEÇALHO (LOGO) ======== */
+.header {
+    text-align: left;
+    padding: 10px 0 30px;
+}
+
+.logo {
+    width: 120px;
+    height: auto;
+}
+
+
+/* ======== TÍTULO ======== */
+.main-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--text-dark);
+    margin-bottom: 30px;
+    text-align: left;
+}
+
+/* ======== FORMULÁRIO GERAL ======== */
+.registration-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 5px;
+    color: var(--text-dark);
+}
+
+/* Estilo dos Inputs (Campos de Texto e Select) */
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="password"],
+input[type="date"],
+.form-group select {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid var(--border-color);
+    border-radius: 4px;
+    font-size: 1rem;
+    color: var(--text-dark);
+    outline: none;
+    transition: border-color 0.3s ease;
+    -webkit-appearance: none; /* Remove estilo padrão em navegadores WebKit (para select) */
+    -moz-appearance: none; /* Remove estilo padrão em navegadores Mozilla (para select) */
+    appearance: none;
+}
+
+input::placeholder,
+.form-group select option[disabled] {
+    color: #999;
+}
+
+input:focus,
+.form-group select:focus {
+    border-color: var(--smartfit-orange);
+}
+
+/* Estilo do Dropdown Sexo/Gênero */
+.form-group select {
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="%23333" d="M7 10l5 5 5-5z"/></svg>');
+    background-repeat: no-repeat;
+    background-position: right 10px center;
+    padding-right: 35px; /* Espaço para a seta */
+}
+
+/* Estilo do Input de Telefone (DDD + Celular) */
+.phone-input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: start;
+}
+
+/* ======== TEXTOS DE INFORMAÇÃO ======== */
+.privacy-text, .important-text {
+    font-size: 0.75rem;
+    color: #666;
+    margin-top: 5px;
+}
+
+.important-text {
+    font-weight: 600;
+}
+
+/* ======== BOTÃO DE AÇÃO ======== */
+.submit-button {
+    background-color: var(--smartfit-orange);
+    color: var(--text-dark);
+    font-size: 1.1rem;
+    font-weight: 700;
+    padding: 15px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background-color 0.3s ease;
+}
+
+.submit-button:hover {
+    background-color: #e0ac00;
+}
+
+.button-class{
+    display: flex;
+    justify-content: center;
+}
+
+/* ======== RESPONSIVIDADE ======== */
+@media (max-width: 600px) {
+    .page-container {
+        padding: 20px;
+        box-shadow: none;
+    }
+}
+

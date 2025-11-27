@@ -1,20 +1,19 @@
-
 <?php
 
 require_once "../Controller/ClienteController.php";
 
-if($_SERVER["REQUEST_METHOD"] == "POST"){
-    
-    switch($_POST['acao']){
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
+    switch ($_POST['acao']) {
         case "criar":
             $DAO = new ClienteController();
             $DAO->InserirCliente(
-            $_POST['nome'],
-            $_POST['dt_nasc'],
-            $_POST['telefone'],
-            $_POST['email'],
-            $_POST['senha'],
-            $_POST['cpf']
+                $_POST['nome'],
+                $_POST['dt_nasc'],
+                $_POST['telefone'],
+                $_POST['email'],
+                $_POST['senha'],
+                $_POST['cpf']
             );
             break;
     }
@@ -24,115 +23,86 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
 
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Faça seu Cadastro - TECHFIT</title>
-    <link rel="stylesheet" href="../CSS/Cadastro.css">
-    
+    <link rel="stylesheet" href="Cadastro2.css">
 </head>
+
 <body>
-    <div class="split-screen-container">
-        
-        <div class="left-section">
-            <h1 class="techfit-logo-text">TECH<span class="techfit-logo-fit">FIT</span></h1>
-        </div>
+    <div class="page-container">
 
-        <div class="right-section">
-            <div class="form-wrapper">
-                <h2 class="form-title">Faça seu cadastro</h2>
+        <main class="registration-form">
+            <form action="Cadastro.php" method="post">
+                <input type="hidden" name="acao" value="criar">
+                <h1 class="main-title">Criação de cadastro</h1>
 
-                <form method="post" action="Cadastro.php">
-                    <input type="hidden" name="acao" value="criar">
-                    
-                    <div class="input-group">
-                        <i class="fas fa-envelope icon"></i>
-                        <input type="text" id="nome" name="nome" placeholder="Nome" required>
-                    </div>
-
-                    <div class="input-group">
-                        <i class="fas fa-lock icon"></i>
-                        <input type="email" id="email" name="email" placeholder="Email" required>
-                    </div>
-                    
-                    <div class="input-group">
-                        <i class="fas fa-lock icon"></i>
-                        <input type="text" id="dt_nasc" name="dt_nasc" placeholder="Data de Nascimento" required>
-                    </div>
-                    
-                    <div class="input-group">
-                        <i class="fas fa-lock icon"></i>
-                        <input type="text" id="telefone" name="telefone" placeholder="Telefone" required>
-                    </div>
-                    
-                    <div class="input-group">
-                        <i class="fas fa-lock icon"></i>
-                        <input type="text" id="cpf" name="cpf" placeholder="CPF" required>
-                    </div>
-                    
-                    <div class="input-group">
-                        <i class="fas fa-lock icon"></i>
-                        <input type="password" id="senha" name="senha" placeholder="Senha" required>
-                    </div>
-
-                    <p id="feedback-message" class="message"></p>
-
-                    <button type="submit" class="btn btn-primary">CRIAR</button>
-                </form>
-
-                <div class="form-links">
-                    <a href="Esq.html">Esqueci a senha</a>
-                    <a href="Login.html">Já tenho uma conta</a>
+                <div class="form-group">
+                    <label for="cpf">CPF</label>
+                    <input type="text" id="cpf" name="cpf" placeholder="Digite seu CPF" required>
                 </div>
-            </div>
-        </div>
+
+                <div class="form-group">
+                    <label for="nome">Nome completo</label>
+                    <input type="text" id="nome" name="nome" placeholder="Digite seu nome completo" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">E-mail</label>
+                    <input type="email" id="email" name="email" placeholder="Ex: techFit@.com" required>
+                </div>
+
+                <div class="form-group phone-group">
+                    <label for="telefone">DDD + Celular</label>
+                    <div class="phone-input-wrapper">
+                        <input type="tel" id="telefone" name="telefone" placeholder="Digite seu telefone" required>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label for="data_nascimento">Data de nascimento</label>
+                    <input type="text" id="dt_nasc" name="dt_nasc" required>
+                </div>
+
+                <div class="form-group hidden-field">
+                    <label for="senha">Criar Senha</label>
+                    <input type="password" id="senha" name="senha" placeholder="Digite sua senha" required>
+                </div>
+
+                <p class="privacy-text">
+                    Utilizamos seus dados pessoais para o cadastro em nossa plataforma, que nos permite lhe prestar nossos serviços. Para mais informações, acesse nosso
+                    <a href="termosDePrivacidade.html">Aviso de Privacidade</a>. Caso não queira receber comunicações de marketing, o descadastramento pode ser realizado pelo
+                    <a href="termosDePrivacidade.html">Portal de Privacidade</a> ou pelo link disponibilizado no rodapé dos e-mails da TechFit.
+                </p>
+                <p class="important-text">
+                    Importante: apenas comunicações de Marketing podem ser desativadas. O envio de informações sobre seus planos e/ou sobre sua TechFit continuarão a ser encaminhados, pois são essenciais para prestação de serviços.
+                </p>
+
+                <div class="button-class">
+                    <button type="submit" class="submit-button">
+                        JÁ TENHO CADASTRO
+                    </button>
+                </div>
+            </form>
+        </main>
+        <!-- <strong><a href="home.html">Voltar</a></strong> -->
     </div>
 </body>
 
 <script>
+    const dataInput = document.getElementById('dt_nasc');
 
-           const dataInput = document.getElementById('dt_nasc');
-            
-            dataInput.onfocus = function(){
-                this.type = 'date'
-            }
-            
-            dataInput.onblur = function(){
-                if(this.value == ''){
-                    this.type = 'text'
-                }
-            }
+    dataInput.onfocus = function() {
+        this.type = 'date'
+    }
 
-        // function simularCadastro(event) {
-        //     event.preventDefault(); 
+    dataInput.onblur = function() {
+        if (this.value == '') {
+            this.type = 'text'
+        }
+    }
+</script>
 
-        //     const nomeInput = document.getElementById('nome').value.trim();
-        //     const emailInput = document.getElementById('email').value.trim();
-        //     const senhaInput = document.getElementById('senha').value.trim();
-        //     const dataInputValue = document.getElementById('dt_nasc').value.trim();
-        //     const telefoneInput = document.getElementById('telefone').value.trim();
-        //     const cpfInput = document.getElementById('cpf').value.trim();
-            
-            
-         
-        //     const mensagem = document.getElementById('feedback-message');
-
-        //     // Validação básica para garantir que os campos não estão vazios
-        //     if (emailInput === '' || senhaInput === '') {
-        //          mensagem.textContent = 'Por favor, preencha todos os campos.';
-        //          mensagem.style.color = 'red';
-        //          mensagem.style.display = 'block';
-        //          return;
-        //     }
-
-        //     mensagem.textContent = 'Cadastro realizado com sucesso! Redirecionando para o login...';
-        //     mensagem.style.color = 'green';
-        //     mensagem.style.display = 'block';
-
-            // Redireciona para a página de login após 1.5 segundos
-            // setTimeout(() => {
-            //     window.location.href = 'login.html'; // <<< Mude 'login.html' para sua página de login
-            // }, 1500); 
-        
-    </script>
 </html>

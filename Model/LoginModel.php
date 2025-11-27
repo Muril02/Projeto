@@ -1,6 +1,6 @@
 <?php 
-
 require_once "ConexaoBanco.php";
+session_start();
 class LoginModel{
 
     private $db;
@@ -10,7 +10,7 @@ class LoginModel{
     }
 
      public function ListarClienteEmail($email, $senhaRecebida){
-        $query = "SELECT * FROM clientes WHERE email = ?";
+        $query = "SELECT * FROM cliente WHERE email = ?";
         $result = $this->db->prepare($query);
         $result->execute([$email]);
         $user = $result->fetch(PDO::FETCH_ASSOC);
@@ -21,7 +21,6 @@ class LoginModel{
             if(password_verify($senhaRecebida,$senhaBanco)){
 
                 $_SESSION['IdUsuario'] = $user["Id_cliente"];
-                
                 return true;
             }
         }
