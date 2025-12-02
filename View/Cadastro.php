@@ -28,7 +28,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Faça seu Cadastro - TECHFIT</title>
-    <link rel="stylesheet" href="Cadastro2.css">
+    <link rel="stylesheet" href="/CSS/Cadastro2.css">
 </head>
 
 <body>
@@ -82,7 +82,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                 <div class="button-class">
                     <button type="submit" class="submit-button">
-                        JÁ TENHO CADASTRO
+                       Cadastrar
                     </button>
                 </div>
             </form>

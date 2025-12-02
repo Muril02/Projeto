@@ -20,5 +20,9 @@ class ClienteController{
         $DAO->InsertCliente($cliente);
     }
 
+    public function ListarClientePorId($id){
+        $cliente = new ClienteDAO();
+        return $cliente->ListarClientesId($id);
+    }
 
 }

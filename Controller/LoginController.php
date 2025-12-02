@@ -5,25 +5,32 @@ require_once "../Model/LoginModel.php";
 
 class LoginController{
 
-
     public function Logar(){
         $email = $_POST['email'];
         $senha = $_POST['senha'];
 
         $LoginModel = new LoginModel();
-        $LoginModel->ListarClienteEmail($email, $senha);
+        $LoginSucesso = $LoginModel->ListarClienteEmail($email, $senha);
 
-        if(isset($_SESSION["erro"])){
-
-            unset($_SESSION["erro"]);
-            echo "Erro ao logar!";
-
+        if($LoginSucesso){
+             header("Location: /index.php");
+             exit;
         }else{
-            header("Location: /View/index.php");
+           header("Location: /Login.php");
+           exit;
         }
     }
 
     public function Sair(){
         unset($_SESSION["IdUsuario"]);
+    }
+}
+
+if(isset($_POST['acao'])){
+    $controller = new LoginController();
+    $acao = $_POST['acao'];
+    
+    if($acao == 'entrar'){
+        $controller->Logar();
     }
 }

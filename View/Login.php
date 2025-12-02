@@ -1,8 +1,3 @@
-<?php
-
-
-
-?>
 
 <!DOCTYPE html>
 <html lang="pt-BR">
@@ -11,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Faça seu Cadastro - TECHFIT</title>
     <link rel="stylesheet" href="Login.css"> 
-   <link rel="stylesheet" href="Cadastro.css">
+   <link rel="stylesheet" href="CSS/Cadastro.css">
 
 </head>
 <body>
@@ -43,7 +38,7 @@
                 </form>
 
                 <div class="form-links">
-                    <a href="Login.html">Já tenho uma conta</a>
+                    <a href="Cadastro.php">Não tenho uma conta</a>
                 </div>
             </div>
         </div>

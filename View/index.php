@@ -1,13 +1,13 @@
 <?php
 require_once "../Controller/LoginController.php";
-session_start();
-
-
-    $teste = new LoginController();
+require_once "../Model/LoginModel.php";
 
     if(!isset($_SESSION['IdUsuario'])){
         header("Location: /Login.php");
+        exit;
     }
+
+    var_dump($_SESSION);
 ?>
 
 <!DOCTYPE html>
@@ -16,7 +16,7 @@ session_start();
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="home.css">
+    <link rel="stylesheet" href="/CSS/index.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous" />
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
@@ -42,10 +42,10 @@ session_start();
                             <a class="nav-link" href="VerMais.html">Agendar </a>
                         </li>
                         <li class="nav-item me-3">
-                            <a class="nav-link" href="/View/Login.php">Entrar</a>
-                        </li>
-                             <li class="nav-item me-3">
                             <a class="nav-link" href="Sobre.html">Sobre nós</a>
+                        </li>
+                        <li class="nav-item me-3">
+                            <a class="nav-link" href="/Conta.php">Conta</a>
                         </li>
                     </ul>
                 </div>
@@ -54,7 +54,6 @@ session_start();
     </header>
 
     <main>
-        <button onclick="<?php $teste->Sair(); ?>">Sair</button>
         <div class="container hero-section">
             <div class="row w-100">
                 <div class="col-lg-6 col-md-12 hero-text">

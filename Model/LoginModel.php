@@ -1,6 +1,5 @@
 <?php 
 require_once "ConexaoBanco.php";
-session_start();
 class LoginModel{
 
     private $db;
@@ -14,18 +13,23 @@ class LoginModel{
         $result = $this->db->prepare($query);
         $result->execute([$email]);
         $user = $result->fetch(PDO::FETCH_ASSOC);
+      
+        
 
         if($user){
             $senhaBanco = $user["Senha"];
-            
+           
             if(password_verify($senhaRecebida,$senhaBanco)){
-
                 $_SESSION['IdUsuario'] = $user["Id_cliente"];
                 return true;
             }
         }
-        $_SESSION["erro"] = "Falha no login";
+         $_SESSION['Error'] = "Erro ao logar";
         return false;
+    }
+
+    public function FecharSessions(){
+        session_unset();
     }
 
 }

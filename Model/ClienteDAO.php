@@ -33,10 +33,17 @@ class ClienteDAO{
     }
 
     public function ListarClientes(){
-        $query = "SELECT * FROM clientes";
+        $query = "SELECT * FROM cliente";
         $result = $this->db->prepare($query);
         $result->execute();
-        $result->fetchAll(PDO::FETCH_ASSOC);
+       return $result->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+     public function ListarClientesId($id){
+        $query = "SELECT * FROM cliente WHERE id_cliente = ?";
+        $result = $this->db->prepare($query);
+        $result->execute([$id]);
+       return $result->fetch(PDO::FETCH_ASSOC);
     }
 
     public function AtualizarCliente($id,$nome, $dt_nasc, $telefone, $email, $cpf){
@@ -56,13 +63,3 @@ class ClienteDAO{
         $result->execute([$senhaHash, $id]);
     }
 }
-
-// $teste = new ClienteModel("Teste", "2023-05-15", "982747570", "rodolfo@dssdf",
-//  "geladeiratsunami", "890274", null);
-// $DAO = new ClienteDAO();
-// $DAO->AtualizarCliente(2, "Atualizado", "2008-09-30", "47593749", "atualizado@gmail.com",
-//     "58408698"
-// );
-// $DAO->ExcluirCliente(1);
-// $DAO->InsertCliente($teste);
-// var_dump($teste);
