@@ -30,6 +30,7 @@ class ClienteDAO{
         $query = "DELETE FROM cliente WHERE id_cliente = ?";
         $result = $this->db->prepare($query);
         $result->execute([$idCliente]);
+        return true;
     }
 
     public function ListarClientes(){
@@ -52,6 +53,7 @@ class ClienteDAO{
         ";
         $result = $this->db->prepare($query);
         $result->execute([$nome, $dt_nasc, $telefone, $email, $cpf, $id]);
+        return $result->rowCount() > 0;
     }
     
     public function AtualizarSenha($id, $senhaNova){
@@ -61,5 +63,6 @@ class ClienteDAO{
         $senhaHash = password_hash($senhaNova, PASSWORD_BCRYPT);
 
         $result->execute([$senhaHash, $id]);
+        return $result->rowCount() > 0;
     }
 }

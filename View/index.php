@@ -27,25 +27,25 @@ require_once "../Model/LoginModel.php";
     <header>
         <nav class="navbar navbar-expand-lg">
             <div class="container">
-                <a class="navbar-brand" href="#">TechFit</a> 
+                <a class="navbar-brand" href="#">TECH<span class="logo-highlight">FIT</span></a> 
                 
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 
-                <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarNavDropdown">
-                    <ul class="navbar-nav align-items-center">
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav ms-auto align-items-center">
                         <li class="nav-item">
-                            <a class="nav-link" href="Detralhes.html">Planos</a>
+                            <a class="nav-link" href="Detralhes.php">Planos</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="VerMais.html">Agendar </a>
+                            <a class="nav-link" href="Agendar.php">Agendar </a>
                         </li>
-                        <li class="nav-item me-3">
-                            <a class="nav-link" href="Sobre.html">Sobre nós</a>
+                        <li class="nav-item">
+                            <a class="nav-link" href="Sobre.php">Sobre nós</a>
                         </li>
-                        <li class="nav-item me-3">
-                            <a class="nav-link" href="/Conta.php">Conta</a>
+                        <li class="nav-item ms-lg-3">
+                            <a href="Perfil.php" class="btn-busca-academia">Meu Perfil</a>
                         </li>
                     </ul>
                 </div>
@@ -70,7 +70,7 @@ require_once "../Model/LoginModel.php";
         </div>
         
         <div class="img-principal-wrapper">
-            <img src="treinando.avif" alt="Homem fazendo agachamento com saco de areia" class="img-principal">
+            <img src="Img/treinando.avif" alt="Homem fazendo agachamento com saco de areia" class="img-principal">
         </div>
 
         <a href="https://wa.me/" class="whatsapp-icon" target="_blank">
@@ -80,7 +80,7 @@ require_once "../Model/LoginModel.php";
         <div class="container content-section">
             <div class="row d-flex align-items-center mb-5">
                 <div class="col-lg-6 col-md-12">
-                    <img src="musculacao.png" alt="Máquinas de treino sob luz azul" class="img-fluid content-img-left shadow">
+                    <img src="Img/musculação.png" alt="Máquinas de treino sob luz azul" class="img-fluid content-img-left shadow">
                 </div>
                 <div class="col-lg-6 col-md-12 content-text mt-4 mt-lg-0">
                     <h4><strong>Treino Funcional e Musculação: </strong></h4>
@@ -91,16 +91,16 @@ require_once "../Model/LoginModel.php";
             </div>
 
             <div class="row d-flex align-items-center">
-                <div class="col-lg-6 col-md-12 content-text mb-4 mb-lg-0">
-                    <h4><strong>aulas que combinam ritmo e exercícios físicos, proporcionando queima de calorias de forma divertida.</strong></h4>
+                <div class="col-lg-6 col-md-12 content-text mb-4 mb-lg-0 order-lg-1">
+                    <h4><strong>Aulas que combinam ritmo e exercícios físicos, proporcionando queima de calorias de forma divertida.</strong></h4>
                     <p>
-                        aulas que combinam ritmo e exercícios físicos,
+                        Aulas que combinam ritmo e exercícios físicos,
                         promovendo queima de calorias de forma
                         divertida.
                     </p>
                 </div>
-                <div class="col-lg-6 col-md-12">
-                    <img src="zumba.png" alt="Grupo de pessoas em aula de dança" class="img-fluid content-img-right shadow">
+                <div class="col-lg-6 col-md-12 order-lg-2">
+                    <img src="Img/zumba.png" alt="Grupo de pessoas em aula de dança" class="img-fluid content-img-right shadow">
                 </div>
             </div>
         </div>
@@ -134,7 +134,7 @@ require_once "../Model/LoginModel.php";
                 </div>
             </div>
             <div class="d-flex justify-content-end mt-4">
-                <a href="VerMais.html" class="btn-ver-mais">Ver mais</a>
+                <a href="VerMais.php" class="btn-ver-mais">Ver mais</a>
             </div>
         </div>
 
@@ -168,9 +168,9 @@ require_once "../Model/LoginModel.php";
                 <div class="card-plano col-lg-3 col-md-5 col-sm-10 shadow">
                     <div class="card-title text-center">Básico</div>
                     <div class="card-body text-center">
-                        <p>Horário</p>
-                        <p>18h-19h</p>
-                        <p>Professor Roberto</p>
+                        <p>Musculação</p>
+                        <p>Acesso em Horário Restrito</p>
+                        <p>Avaliação Física Trimestral</p>
                     </div>
                     <div class="card-footer-custom">
                         <a href="Detralhes.html" class="btn-valor">Valor</a>
@@ -179,9 +179,9 @@ require_once "../Model/LoginModel.php";
                 <div class="card-plano col-lg-3 col-md-5 col-sm-10 shadow">
                     <div class="card-title text-center">Avançado</div>
                     <div class="card-body text-center">
-                        <p>Horário</p>
-                        <p>18h-19h</p>
-                        <p>Professor Roberto</p>
+                        <p>Musculação + Aulas (Zumba, Funcional)</p>
+                        <p>Acesso Ilimitado</p>
+                        <p>Avaliação Física Mensal</p>
                     </div>
                     <div class="card-footer-custom">
                         <a href="Detralhes.html" class="btn-valor">Valor</a>
@@ -190,40 +190,50 @@ require_once "../Model/LoginModel.php";
                 <div class="card-plano col-lg-3 col-md-5 col-sm-10 shadow">
                     <div class="card-title text-center">Pro</div>
                     <div class="card-body text-center">
-                        <p>Horário</p>
-                        <p>18h-19h</p>
-                        <p>Professor Roberto</p>
+                        <p>Tudo do Avançado + Personal</p>
+                        <p>Acesso Ilimitado</p>
+                        <p>Acompanhamento Nutricional</p>
                     </div>
                     <div class="card-footer-custom">
-                        <a href="Detralhes.html" class="btn-valor">Valor</a>
+                        <a href="Detralhes.php" class="btn-valor">Valor</a>
                     </div>
                 </div>
             </div>
             <div class="d-flex justify-content-end mt-4">
-                <a href="Detralhes.html" class="btn-detalhes">Ver detalhes</a>
+                <a href="Detralhes.php" class="btn-detalhes">Ver detalhes</a>
             </div>
         </div>
     </main>
 
     <footer>
-        <div class="container d-flex justify-content-evenly align-items-start">
-            <div>
-                <h4>Contato</h4>
-                <p>Telefone: 19 4002-8922</p>
-                <p>Email: techfit@gmail.com</p>
+        <div class="container">
+            <div class="row d-flex justify-content-between align-items-start">
+                
+                <div class="col-md-4 mb-4 mb-md-0">
+                    <h4>Contato</h4>
+                    <p>Telefone: 19 4002-8922</p>
+                    <p>Email: <a href="mailto:techfit@gmail.com">techfit@gmail.com</a></p>
+                </div>
+                
+                <div class="col-md-4 text-center mb-4 mb-md-0">
+                    <h4>Redes Sociais</h4>
+                    <a href="#"><i class="bi bi-instagram"></i></a>
+                    <a href="#"><i class="bi bi-twitter-x"></i></a>
+                    <a href="#"><i class="bi bi-facebook"></i></a>
+                    <a href="#"><i class="bi bi-linkedin"></i></a>
+                </div>
+                
+                <div class="col-md-4 text-center d-none d-md-block">
+                    </div>
             </div>
-            <div class="text-center">
-                <h4>Redes Sociais</h4>
-                <i class="bi bi-instagram"></i>
-                <i class="bi bi-twitter-x"></i>
-                <i class="bi bi-facebook"></i>
+            
+            <div class="text-center mt-4">
+                 <p>&copy; 2025 TechFit. Todos os direitos reservados.</p>
             </div>
         </div>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

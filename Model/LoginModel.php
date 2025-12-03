@@ -28,8 +28,5 @@ class LoginModel{
         return false;
     }
 
-    public function FecharSessions(){
-        session_unset();
-    }
 
 }

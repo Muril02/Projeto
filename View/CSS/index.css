@@ -27,7 +27,7 @@ body {
     color: var(--text-color); 
     position: relative;
 }
-/* .navbar-brand::after {
+.navbar-brand::after {
     content: '';
     display: inline-block;
     width: 30px; 
@@ -37,7 +37,7 @@ body {
     bottom: -5px; 
     left: 0;
     border-radius: 2px;
-} */
+}
 
 .nav-link {
     color: var(--text-color);

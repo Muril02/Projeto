@@ -4,36 +4,389 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="home.css">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous" />
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <title>TechFit - Home</title>
-</head>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+    
+    <style>
+        /* Definições Gerais */
+        :root {
+            --primary-color: #ffc107; /* Amarelo/Laranja principal */
+            --text-color: #333; /* Usado como Preto no texto e fundo de rodapé */
+            --background-color: #f8f9fa; /* Fundo claro */
+            --link-color: #6c757d;
+            --logo-light: #ffffff; /* Branco Puro para o TECH */
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            color: var(--text-color);
+            background-color: #fff;
+            overflow-x: hidden;
+        }
+
+        /* --- Cabeçalho e Navegação --- */
+        .navbar {
+            padding-top: 1.5rem;
+            padding-bottom: 1.5rem;
+            background-color: var(--text-color); /* Fundo do Header: Preto */
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5); /* Sombra Escura no Header */
+        }
+
+        .navbar-brand {
+            font-size: 1.8rem;
+            font-weight: bold;
+            color: var(--logo-light); /* Cor padrão para a logo: Branco */
+            position: relative;
+        }
+        
+        /* REMOVENDO a linha amarela abaixo da logo */
+        .navbar-brand::after {
+            content: none; 
+            display: none;
+        }
+        
+        /* ESTILO ESPECÍFICO para o "FIT" da logo em amarelo */
+        .navbar-brand .logo-highlight {
+            color: var(--primary-color); 
+        }
+
+        .nav-link {
+            color: white; /* Links na barra preta devem ser brancos */
+            font-size: 1rem;
+            padding: 0 1.5rem !important;
+            transition: color 0.3s;
+        }
+
+        .nav-link:hover {
+            color: var(--primary-color);
+        }
+        
+        /* Botão "Meu Perfil" no Header (cor Amarelo/Preto) */
+        .btn-busca-academia {
+            background-color: var(--primary-color);
+            color: var(--text-color);
+            border: none;
+            font-weight: bold;
+            padding: 0.5rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            display: inline-block;
+            transition: background-color 0.3s;
+        }
+
+        .btn-busca-academia:hover {
+            background-color: #e0ac00; 
+            color: var(--text-color);
+        }
+
+        /* --- Seção Principal (Hero) --- */
+        main {
+            position: relative;
+            padding-bottom: 3rem; 
+        }
+
+        .hero-section {
+            display: flex;
+            align-items: center;
+            min-height: 70vh;
+            padding: 3rem 0;
+            position: relative;
+            z-index: 1; 
+        }
+
+        .hero-text {
+            padding-right: 5rem;
+        }
+
+        .hero-text h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            color: var(--text-color);
+        }
+
+        .hero-text p {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            color: #666;
+        }
+
+        /* Botão Principal da seção Hero (Preto/Branco) */
+        .btn-escolha-academia {
+            background-color: #000000; /* Preto */
+            color: white;
+            border: none;
+            padding: 0.75rem 2rem;
+            border-radius: 5px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            text-decoration: none;
+            display: inline-block;
+            transition: background-color 0.3s;
+        }
+
+        .btn-escolha-academia:hover {
+            background-color: #333333; /* Cinza Escuro no hover */
+            color: white;
+        }
+
+        /* Imagem Principal flutuante (do lado direito) */
+        .img-principal-wrapper {
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 55%;
+            height: 100%;
+            max-height: 80vh;
+            overflow: hidden;
+            z-index: 0; 
+        }
+
+        .img-principal {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; 
+            clip-path: polygon(10% 0, 100% 0, 100% 100%, 0% 100%); 
+        }
+
+        /* Ícone do WhatsApp */
+        .whatsapp-icon {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #25d366; 
+            color: white;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            text-decoration: none;
+            transition: transform 0.3s;
+        }
+        
+        .whatsapp-icon:hover {
+            transform: scale(1.1);
+            color: white;
+        }
+
+        /* --- Estilização para as Seções de Conteúdo --- */
+        .content-section {
+            padding: 4rem 0;
+            margin-top: 5rem; 
+        }
+
+        .content-img-left, .content-img-right {
+            border-radius: 8px;
+            object-fit: cover;
+            height: 350px; 
+            width: 100%;
+        }
+
+        /* Título de seção PRETO */
+        .content-text h4 {
+            color: #000000; /* Preto */
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        /* Seções Turmas/Planos/Histórias */
+        .section-turmas, .section-historias, .section-planos {
+            padding: 3rem 0;
+            background-color: var(--background-color);
+            margin-top: 2rem;
+        }
+        .section-historias {
+            background-color: white;
+        }
+
+
+        .section-turmas h3, .section-historias h3, .section-planos h3 {
+            color: var(--text-color);
+            font-weight: 700;
+            margin-bottom: 3rem;
+            font-size: 2rem;
+        }
+
+        /* Cards (Turmas/Planos/Depoimentos) */
+        .card-turmas, .card-plano, .card-depoimento {
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1rem 0.5rem;
+            transition: transform 0.3s;
+            background-color: white;
+        }
+
+        .card-turmas:hover, .card-plano:hover, .card-depoimento:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Título do Card PRETO */
+        .card-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #000000; /* Preto */
+            margin-bottom: 1rem;
+        }
+
+        /* Botões de Ação das Seções (Ver mais / Ver detalhes) PRETO */
+        .btn-ver-mais, .btn-detalhes {
+            background-color: #000000; /* Preto */
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+            transition: background-color 0.3s;
+        }
+
+        .btn-ver-mais:hover, .btn-detalhes:hover {
+            background-color: #333333; /* Cinza Escuro no hover */
+            color: white;
+        }
+
+        /* Card Plano específico */
+        .card-plano .card-footer-custom {
+            padding-top: 1rem;
+            border-top: 1px solid #eee;
+            text-align: center;
+            margin-top: 1rem;
+        }
+
+        /* Botão de Valor dentro do Plano (AMARELO/PRETO) */
+        .btn-valor {
+            background-color: var(--primary-color);
+            color: var(--text-color);
+            padding: 0.5rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+            transition: background-color 0.3s;
+        }
+
+        .btn-valor:hover {
+            background-color: #e0ac00;
+            color: var(--text-color);
+        }
+
+        /* Footer (Rodapé) */
+        footer {
+            background-color: var(--text-color); /* PRETO PADRÃO: #333 */
+            color: white;
+            padding: 3rem 0;
+            margin-top: 3rem;
+        }
+
+        footer h4 {
+            color: var(--primary-color);
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+
+        footer p {
+            margin-bottom: 0.5rem;
+            font-size: 0.9rem;
+        }
+        
+        /* Link de email no footer */
+        footer a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        
+        footer a:hover {
+            color: var(--primary-color);
+        }
+
+        footer i {
+            font-size: 1.5rem;
+            margin: 0 0.5rem;
+            color: white;
+            transition: color 0.3s;
+        }
+
+        footer i:hover {
+            color: var(--primary-color);
+        }
+
+        /* --- Media Queries para Responsividade --- */
+        @media (max-width: 992px) {
+            .hero-section {
+                min-height: auto;
+                padding-bottom: 0;
+            }
+            .hero-text {
+                padding-right: 15px;
+                padding-bottom: 3rem;
+            }
+            .img-principal-wrapper {
+                position: relative;
+                width: 100%;
+                max-height: 50vh;
+                clip-path: none;
+            }
+            .img-principal {
+                clip-path: none;
+                border-radius: 8px;
+            }
+            .hero-text h1 {
+                font-size: 2.5rem;
+            }
+
+            .content-section .row {
+                flex-direction: column-reverse;
+            }
+            .content-section .row:nth-child(2) {
+                flex-direction: column;
+            }
+            
+            /* Ajuste o footer para telas menores */
+            footer .container {
+                flex-direction: column;
+                text-align: center;
+            }
+            footer .container > div {
+                margin-bottom: 2rem;
+            }
+        }
+    </style>
+    </head>
 
 <body>
     <header>
         <nav class="navbar navbar-expand-lg">
             <div class="container">
-                <a class="navbar-brand" href="#">TechFit</a> 
+                <a class="navbar-brand" href="#">TECH<span class="logo-highlight">FIT</span></a> 
                 
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 
-                <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarNavDropdown">
-                    <ul class="navbar-nav align-items-center">
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav ms-auto align-items-center">
                         <li class="nav-item">
                             <a class="nav-link" href="Detralhes.html">Planos</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="VerMais.html">Agendar </a>
+                            <a class="nav-link" href="Agendar.html">Agendar </a>
                         </li>
-                        <li class="nav-item me-3">
-                            <a class="nav-link" href="Cadastro2.html">Entrar</a>
-                        </li>
-                             <li class="nav-item me-3">
+                        <li class="nav-item">
                             <a class="nav-link" href="Sobre.html">Sobre nós</a>
+                        </li>
+                        <li class="nav-item ms-lg-3">
+                            <a href="perfil.html" class="btn-busca-academia">Meu Perfil</a>
                         </li>
                     </ul>
                 </div>
@@ -68,7 +421,7 @@
         <div class="container content-section">
             <div class="row d-flex align-items-center mb-5">
                 <div class="col-lg-6 col-md-12">
-                    <img src="musculacao.png" alt="Máquinas de treino sob luz azul" class="img-fluid content-img-left shadow">
+                    <img src="musculação.png" alt="Máquinas de treino sob luz azul" class="img-fluid content-img-left shadow">
                 </div>
                 <div class="col-lg-6 col-md-12 content-text mt-4 mt-lg-0">
                     <h4><strong>Treino Funcional e Musculação: </strong></h4>
@@ -79,15 +432,15 @@
             </div>
 
             <div class="row d-flex align-items-center">
-                <div class="col-lg-6 col-md-12 content-text mb-4 mb-lg-0">
-                    <h4><strong>aulas que combinam ritmo e exercícios físicos, proporcionando queima de calorias de forma divertida.</strong></h4>
+                <div class="col-lg-6 col-md-12 content-text mb-4 mb-lg-0 order-lg-1">
+                    <h4><strong>Aulas que combinam ritmo e exercícios físicos, proporcionando queima de calorias de forma divertida.</strong></h4>
                     <p>
-                        aulas que combinam ritmo e exercícios físicos,
+                        Aulas que combinam ritmo e exercícios físicos,
                         promovendo queima de calorias de forma
                         divertida.
                     </p>
                 </div>
-                <div class="col-lg-6 col-md-12">
+                <div class="col-lg-6 col-md-12 order-lg-2">
                     <img src="zumba.png" alt="Grupo de pessoas em aula de dança" class="img-fluid content-img-right shadow">
                 </div>
             </div>
@@ -156,9 +509,9 @@
                 <div class="card-plano col-lg-3 col-md-5 col-sm-10 shadow">
                     <div class="card-title text-center">Básico</div>
                     <div class="card-body text-center">
-                        <p>Horário</p>
-                        <p>18h-19h</p>
-                        <p>Professor Roberto</p>
+                        <p>Musculação</p>
+                        <p>Acesso em Horário Restrito</p>
+                        <p>Avaliação Física Trimestral</p>
                     </div>
                     <div class="card-footer-custom">
                         <a href="Detralhes.html" class="btn-valor">Valor</a>
@@ -167,9 +520,9 @@
                 <div class="card-plano col-lg-3 col-md-5 col-sm-10 shadow">
                     <div class="card-title text-center">Avançado</div>
                     <div class="card-body text-center">
-                        <p>Horário</p>
-                        <p>18h-19h</p>
-                        <p>Professor Roberto</p>
+                        <p>Musculação + Aulas (Zumba, Funcional)</p>
+                        <p>Acesso Ilimitado</p>
+                        <p>Avaliação Física Mensal</p>
                     </div>
                     <div class="card-footer-custom">
                         <a href="Detralhes.html" class="btn-valor">Valor</a>
@@ -178,9 +531,9 @@
                 <div class="card-plano col-lg-3 col-md-5 col-sm-10 shadow">
                     <div class="card-title text-center">Pro</div>
                     <div class="card-body text-center">
-                        <p>Horário</p>
-                        <p>18h-19h</p>
-                        <p>Professor Roberto</p>
+                        <p>Tudo do Avançado + Personal</p>
+                        <p>Acesso Ilimitado</p>
+                        <p>Acompanhamento Nutricional</p>
                     </div>
                     <div class="card-footer-custom">
                         <a href="Detralhes.html" class="btn-valor">Valor</a>
@@ -194,24 +547,34 @@
     </main>
 
     <footer>
-        <div class="container d-flex justify-content-evenly align-items-start">
-            <div>
-                <h4>Contato</h4>
-                <p>Telefone: 19 4002-8922</p>
-                <p>Email: techfit@gmail.com</p>
+        <div class="container">
+            <div class="row d-flex justify-content-between align-items-start">
+                
+                <div class="col-md-4 mb-4 mb-md-0">
+                    <h4>Contato</h4>
+                    <p>Telefone: 19 4002-8922</p>
+                    <p>Email: <a href="mailto:techfit@gmail.com">techfit@gmail.com</a></p>
+                </div>
+                
+                <div class="col-md-4 text-center mb-4 mb-md-0">
+                    <h4>Redes Sociais</h4>
+                    <a href="#"><i class="bi bi-instagram"></i></a>
+                    <a href="#"><i class="bi bi-twitter-x"></i></a>
+                    <a href="#"><i class="bi bi-facebook"></i></a>
+                    <a href="#"><i class="bi bi-linkedin"></i></a>
+                </div>
+                
+                <div class="col-md-4 text-center d-none d-md-block">
+                    </div>
             </div>
-            <div class="text-center">
-                <h4>Redes Sociais</h4>
-                <i class="bi bi-instagram"></i>
-                <i class="bi bi-twitter-x"></i>
-                <i class="bi bi-facebook"></i>
+            
+            <div class="text-center mt-4">
+                 <p>&copy; 2025 TechFit. Todos os direitos reservados.</p>
             </div>
         </div>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 
 </html>

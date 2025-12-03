@@ -1,5 +1,10 @@
 <?php
-session_start();
+if (session_status() === PHP_SESSION_NONE) {
+    // Session is not active, so start it
+    session_start();
+}
+
+
 require_once "../Model/ConexaoBanco.php";
 require_once "../Model/LoginModel.php";
 
@@ -20,9 +25,9 @@ class LoginController{
            exit;
         }
     }
-
+    
     public function Sair(){
-        unset($_SESSION["IdUsuario"]);
+       session_unset();
     }
 }
 

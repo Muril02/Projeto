@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Faça seu Cadastro - TECHFIT</title>
     <link rel="stylesheet" href="Login.css"> 
-   <link rel="stylesheet" href="CSS/Cadastro.css">
+   <link rel="stylesheet" href="CSS/Login.css">
 
 </head>
 <body>
