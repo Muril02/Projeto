@@ -1,0 +1,75 @@
+create database tech_fit;
+use tech_fit;
+
+CREATE TABLE Cliente 
+( 
+ Id_cliente INT PRIMARY KEY auto_increment,  
+ Nome varchar(100) not null,  
+ Data_nascimento Date not null,  
+ Telefone varchar(50) not null,  
+ Email varchar(200) not null,  
+ Senha varchar(100) not null,  
+ CPF varchar(50) not null,  
+ idPlano INT
+); 
+
+select * from Cliente;
+
+CREATE TABLE Agendamento 
+( 
+ Capacidade int not null,  
+ Horario time not null,  
+ Data date not null,
+ idTurma INT not null,
+ idCliente INT not null
+); 
+
+CREATE TABLE Turma 
+( 
+ Id_turma INT PRIMARY KEY auto_increment not null,  
+ Nome varchar(100) not null,   
+ Capacidade INT not null,
+ descricao text not null,
+ Horario time not null,
+ idProfessor INT not null
+); 
+
+CREATE TABLE Plano 
+( 
+ Nome_plano varchar(70) not null,  
+ Valor decimal(10, 2) not null,  
+ Id_plano INT PRIMARY KEY auto_increment not null
+); 
+
+CREATE TABLE Professor 
+( 
+ Id_professor INT PRIMARY KEY auto_increment not null,  
+ Nome varchar(100) not null,
+ Email varchar(200) not null,   
+ CPF varchar(50) not null,
+ Senha varchar(150) not null
+); 
+
+
+CREATE TABLE Admins 
+( 
+ Id_admin INT PRIMARY KEY auto_increment not null,  
+ Email varchar(200) not null,
+ Senha varchar(150) not null 
+); 
+
+CREATE TABLE Historico 
+( 
+ Id_cliente INT not null,  
+ Id_turma INT not null,   
+ Data date not null,  
+ Horario time not null,  
+ Id_historico INT PRIMARY KEY auto_increment  not null
+); 
+
+ALTER TABLE Cliente ADD foreign key (idPlano) REFERENCES Plano (id_plano);
+ALTER TABLE Agendamento ADD FOREIGN KEY(idTurma) REFERENCES Turma (id_turma);
+ALTER TABLE Agendamento ADD FOREIGN KEY(idCliente) REFERENCES Cliente (id_cliente);
+ALTER TABLE Turma ADD FOREIGN KEY(idProfessor) REFERENCES Professor (id_professor);
+
+alter table Agendamento add Primary key (idTurma, idCliente);

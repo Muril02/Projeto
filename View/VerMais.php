@@ -19,7 +19,7 @@
         </div>
         <nav>
             <a href="index.php" class="btn-voltar">Voltar</a>
-            <a href="Login.php" class="btn-entrar">Entrar</a>
+            <a href="Login.php" class="btn-entrar">Perfil</a>
         </nav>
     </header>
 
@@ -40,7 +40,7 @@
         
         <div class="card">
             <div class="card-image-container">
-                <img src="Body.png" alt="Aula de Body Balance" class="card-image">
+                <img src="Img/Body.png" alt="Aula de Body Balance" class="card-image">
                 <div class="card-title-overlay">BODY BALANCE</div>
             </div>
             <div class="card-details">
@@ -60,7 +60,7 @@
 
         <div class="card">
             <div class="card-image-container">
-                <img src="FitDance.png" alt="Aula de Smart Core" class="card-image">
+                <img src="Img/FitDance.png" alt="Aula de Smart Core" class="card-image">
                 <div class="card-title-overlay">FITDANCE</div>
             </div>
             <div class="card-details">
@@ -74,7 +74,7 @@
 
         <div class="card">
             <div class="card-image-container">
-                <img src="alongamento.png"Aula de Alongamento" class="card-image">
+                <img src="Img/alongamento.png"Aula de Alongamento" class="card-image">
                 <div class="card-title-overlay">ALONGAMENTO</div>
             </div>
             <div class="card-details">
@@ -88,7 +88,7 @@
         
         <div class="card">
             <div class="card-image-container">
-                <img src="zumba.png" alt="Aula de Zumba" class="card-image">
+                <img src="Img/zumba.png" alt="Aula de Zumba" class="card-image">
                 <div class="card-title-overlay">ZUMBA</div>
             </div>
             <div class="card-details">
@@ -102,7 +102,7 @@
         
         <div class="card">
             <div class="card-image-container">
-                <img src="box.png" alt="Aula de Body Combat" class="card-image">
+                <img src="Img/box.png" alt="Aula de Body Combat" class="card-image">
                 <div class="card-title-overlay">BODY COMBAT</div>
             </div>
             <div class="card-details">
@@ -116,7 +116,7 @@
         
         <div class="card">
             <div class="card-image-container">
-                <img src="funcional.png" alt="Aula de Treino Funcional" class="card-image">
+                <img src="Img/funcional.png" alt="Aula de Treino Funcional" class="card-image">
                 <div class="card-title-overlay">FUNCIONAL</div>
             </div>
             <div class="card-details">

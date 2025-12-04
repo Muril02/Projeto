@@ -5,8 +5,8 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Faça seu Cadastro - TECHFIT</title>
+    <link rel="stylesheet" href="CSS/Login.css">
     <link rel="stylesheet" href="Login.css"> 
-   <link rel="stylesheet" href="CSS/Login.css">
 
 </head>
 <body>
@@ -18,7 +18,7 @@
 
         <div class="right-section">
             <div class="form-wrapper">
-                <h2 class="form-title">Faça seu cadastro</h2>
+                <h2 class="form-title">Faça seu login</h2>
 
                 <form action="../Controller/LoginController.php" method="post">
                     <input type="hidden" name="acao" value="entrar">

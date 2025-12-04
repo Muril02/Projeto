@@ -19,17 +19,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             $Email = $_POST["Email"]; 
             $Telefone = $_POST["Telefone"]; 
             $Dt_nasc = $_POST["Dt_nasc"]; 
-            $Id_cliente = $_POST["Id_cliente"]; 
+            $Id_cliente = $_POST["Id_cliente"];
 
                $controller = new ClienteController();
                $controller->Alterar($Nome, $Cpf, $Email, $Telefone, $Dt_nasc, $Id_cliente);
             break;
         }
-
-        var_dump($Id_cliente);
 }
-
-
 
 
 ?>

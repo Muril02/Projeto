@@ -4,7 +4,6 @@ if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 
-
 require_once "../Model/ConexaoBanco.php";
 require_once "../Model/LoginModel.php";
 
@@ -28,14 +27,22 @@ class LoginController{
     
     public function Sair(){
        session_unset();
+       header("Location: ../Login.php");
+       exit();
     }
 }
 
 if(isset($_POST['acao'])){
-    $controller = new LoginController();
-    $acao = $_POST['acao'];
-    
-    if($acao == 'entrar'){
-        $controller->Logar();
+    switch($_POST['acao']){
+        case 'entrar':
+            $controller = new LoginController();
+            $controller->Logar();
+            break;
+        case 'sair':
+            $controller = new LoginController();
+            $controller->Sair();
+            break;
     }
 }
+
+

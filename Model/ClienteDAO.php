@@ -21,9 +21,9 @@ class ClienteDAO{
 
         $senhaHash = password_hash($senha, PASSWORD_BCRYPT); 
 
-        $query = "INSERT INTO cliente(nome, data_nascimento, Telefone, Email, Senha, Cpf) VALUES (?, ?, ?, ?, ?, ?)";
+        $query = "INSERT INTO cliente(nome, data_nascimento, telefone, email, senha, cpf) VALUES (?, ?, ?, ?, ?, ?)";
         $result = $this->db->prepare($query);
-        $result->execute([$nome, $dt_nasc, $telefone, $email,$senhaHash, $cpf]);
+        return $result->execute([$nome, $dt_nasc, $telefone, $email,$senhaHash, $cpf]);
     }
 
     public function ExcluirCliente($idCliente){

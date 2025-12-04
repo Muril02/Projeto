@@ -18,13 +18,16 @@ class ClienteController{
         );
 
         $DAO = new ClienteDAO();
-        if($DAO->InsertCliente($cliente)){
-            header("Location: " . $_SERVER['PHP_SELF']);
-        }else{
-            header("Location: /Login.php");
-        }
-
+        $DAO->InsertCliente($cliente);
+        // header("Location: /Login.php");
+        // exit();
         
+        // if($DAO->InsertCliente($cliente) == true){
+        //     header("Location: " . $_SERVER['PHP_SELF']);
+        //     exit();
+        // }else{
+            
+        // }
     }
 
     public function ExcluirConta($id){
@@ -82,16 +85,5 @@ class ClienteController{
          }
     }
 
-}
 
-if(isset($_POST['acao'])){
-
-    $acao = $_POST['acao'];
-    $id = $_POST['Id_cliente'];
-    switch($acao){
-        case "excluir":
-            $controller = new ClienteController();
-            $controller->ExcluirConta($id);
-            break;
-}
 }

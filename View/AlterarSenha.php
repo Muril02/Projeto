@@ -36,7 +36,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 break;
         }
 
-        var_dump($Id_cliente);
 }
 
 
@@ -68,7 +67,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
                     <div class="form-group">
                         <label for="senha">Senha</label>
-                        <input type="text" id="senha" name="Senha" placeholder="Digite sua senha nova" required>
+                        <input type="password" id="senha" name="Senha" placeholder="Digite sua senha nova" required>
                     </div>
 
                     <button type="submit" class="submit-button btn btn-primary">
