@@ -1,0 +1,196 @@
+/* ============================
+   CORES E VARIÁVEIS
+==================================== */
+:root {
+    --techfit-yellow: #fff200;
+    --black: #000000;
+    --white: #ffffff;
+    --gray-light: #f4f4f4;
+    --input-bg: #f7e8e8;
+    --text-dark: #333;
+}
+
+/* ============================
+   BASE
+==================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    background: var(--gray-light);
+    min-height: 100vh;
+    display: flex;
+}
+
+/* ============================
+   LAYOUT SPLIT SCREEN
+==================================== */
+.split-screen-container {
+    display: flex;
+    width: 100%;
+    min-height: 100vh;
+}
+
+/* LADO ESQUERDO */
+.left-section {
+    flex: 1;
+    background: #1c1c1c;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.techfit-logo-text {
+    font-size: 3rem;
+    font-weight: 900;
+    color: white;
+}
+
+.techfit-logo-fit {
+    color: var(--techfit-yellow);
+}
+
+/* LADO DIREITO */
+.right-section {
+    flex: 1;
+    background: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px;
+}
+
+/* ============================
+   FORM WRAPPER
+==================================== */
+.form-wrapper,
+.registration-wrapper {
+    width: 100%;
+    max-width: 400px;
+}
+
+/* TÍTULO */
+.form-title,
+.main-title {
+    font-size: 1.9rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 25px;
+    color: var(--text-dark);
+}
+
+/* ============================
+   FORM INPUTS
+==================================== */
+.form-group {
+    margin-bottom: 18px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+
+input,
+select {
+    width: 100%;
+    padding: 12px 15px;
+    border: none;
+    background: var(--input-bg);
+    border-radius: 8px;
+    font-size: 1rem;
+    outline: none;
+}
+
+input:focus,
+select:focus {
+    border: 2px solid var(--black);
+}
+
+/* ============================
+   MENSAGEM DE FEEDBACK
+==================================== */
+.message {
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 15px;
+    display: none;
+}
+
+/* ============================
+   BOTÃO
+==================================== */
+.submit-button {
+    width: 100%;
+    background: black;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 700;
+    padding: 14px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: 0.2s;
+}
+
+.submit-button:hover {
+    background: #222;
+}
+
+/* ============================
+   LINKS
+==================================== */
+.form-links {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.form-links a {
+    font-size: 0.9rem;
+    color: black;
+    text-decoration: none;
+}
+
+.form-links a:hover {
+    text-decoration: underline;
+}
+
+/* ============================
+   TEXTO DE PRIVACIDADE
+==================================== */
+.privacy-text,
+.important-text {
+    font-size: 0.75rem;
+    color: #555;
+    margin-top: 10px;
+    text-align: justify;
+}
+
+/* ============================
+   RESPONSIVIDADE
+==================================== */
+@media (max-width: 768px) {
+    .split-screen-container {
+        flex-direction: column;
+    }
+
+    .left-section {
+        height: 180px;
+    }
+
+    .techfit-logo-text {
+        font-size: 2.2rem;
+    }
+
+    .right-section {
+        padding: 25px;
+    }
+}
