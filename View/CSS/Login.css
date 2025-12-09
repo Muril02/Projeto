@@ -1,133 +1,152 @@
-        body {
-            background-color: #ffffff; 
-            font-family: Arial, sans-serif;
-            margin: 0;
-            min-height: 100vh;
-            display: flex;
-        }
+body {
+    background-color: #ffffff; 
+    font-family: Arial, sans-serif;
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+}
 
-        /* Container da Tela Dividida */
-        .split-screen-container {
-            display: flex;
-            width: 100%;
-            min-height: 100vh;
-        }
+/* Container da Tela Dividida */
+.split-screen-container {
+    display: flex;
+    width: 100%;
+    min-height: 100vh;
+}
 
-        /* --- 2. Seção Esquerda (Logo e Fundo Escuro) --- */
-        .left-section {
-            background-color: #1e1e1e; /* Fundo preto/escuro */
-            width: 40%; 
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            box-sizing: border-box;
-        }
+/* --- 2. Seção Esquerda (Logo e Fundo Escuro) --- */
+.left-section {
+    background-color: #1e1e1e; /* Fundo preto/escuro */
+    width: 40%; 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+}
 
-        /* Estilo para o texto TECHFIT */
-        .techfit-logo-text {
-            font-size: 3em;
-            font-weight: bold;
-            color: #ffffff; 
-        }
-        
-        /* Ajuste para o "FIT" em amarelo */
-        .techfit-logo-text span {
-            color: #ffff00; /* Amarelo */
-        }
+/* Estilo para o texto TECHFIT */
+.techfit-logo-text {
+    font-size: 3em;
+    font-weight: bold;
+    color: #ffffff; 
+}
 
-        /* --- 3. Seção Direita (Formulário) --- */
-        .right-section {
-            background-color: #ffffff; 
-            width: 60%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-        }
+/* Ajuste para o "FIT" em amarelo */
+.techfit-logo-text span {
+    color: #ffff00; /* Amarelo */
+}
 
-        .form-wrapper {
-            width: 100%;
-            max-width: 350px; 
-            text-align: center;
-        }
+/* --- 3. Seção Direita (Formulário) --- */
+.right-section {
+    background-color: #ffffff; 
+    width: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
 
-        .form-title {
-            font-size: 1.8em;
-            color: #000000; 
-            margin-bottom: 30px;
-            font-weight: 600;
-        }
+.form-wrapper {
+    width: 100%;
+    max-width: 350px; 
+    text-align: center;
+}
 
-        /* --- 4. Inputs e Ícones --- */
-        .input-group {
-            margin-bottom: 20px;
-            position: relative;
-        }
+.form-title {
+    font-size: 1.8em;
+    color: #000000; 
+    margin-bottom: 30px;
+    font-weight: 600;
+}
 
-        .input-group input {
-            width: 100%;
-            padding: 15px 15px 15px 45px; /* Padding à esquerda para o ícone */
-            border: none;
-            border-radius: 8px; 
-            box-sizing: border-box;
-            font-size: 16px;
-            background-color: #f7eaea; /* Cor rosada clara */
-            color: #333333;
-        }
+/* --- 4. Inputs e Ícones --- */
+.input-group {
+    margin-bottom: 20px;
+    position: relative;
+}
 
-        .input-group .icon {
-            position: absolute;
-            top: 50%;
-            left: 15px; 
-            transform: translateY(-50%);
-            color: #999999; 
-            font-size: 1.1em;
-        }
+.input-group input {
+    width: 100%;
+    padding: 15px 15px 15px 45px; /* Padding à esquerda para o ícone */
+    border: none;
+    border-radius: 8px; 
+    box-sizing: border-box;
+    font-size: 16px;
+    background-color: #f7eaea; /* Cor rosada clara */
+    color: #333333;
+}
 
-        /* --- 5. Botões e Mensagens --- */
-        .btn {
-            width: 100%;
-            padding: 15px;
-            border: none;
-            border-radius: 8px; 
-            cursor: pointer;
-            font-size: 17px;
-            font-weight: bold;
-            margin-top: 15px;
-            transition: background-color 0.3s;
-            text-transform: uppercase;
-        }
+.input-group .icon {
+    position: absolute;
+    top: 50%;
+    left: 15px; 
+    transform: translateY(-50%);
+    color: #999999; 
+    font-size: 1.1em;
+}
 
-        /* Botão Principal (ENTRAR) - Preto */
-        .btn-primary { 
-            background-color: #000000;
-            color: white;
-        }
+/* --- 5. Botões e Mensagens --- */
+.btn {
+    width: 100%;
+    padding: 15px;
+    border: none;
+    border-radius: 8px; 
+    cursor: pointer;
+    font-size: 17px;
+    font-weight: bold;
+    margin-top: 15px;
+    transition: background-color 0.3s;
+    text-transform: uppercase;
+}
 
-        .btn-primary:hover {
-            background-color: #333333;
-        }
+/* Botão Principal (ENTRAR) - Preto */
+.btn-primary { 
+    background-color: #000000;
+    color: white;
+}
 
-        .message {
-            color: red;
-            margin-top: 10px;
-            display: none; 
-            font-size: 0.9em;
-        }
+.btn-primary:hover {
+    background-color: #333333;
+}
 
-        /* --- 6. Links Adicionais --- */
-        .form-links {
-            margin-top: 30px;
-            font-size: 0.9em;
-        }
+/* Base style for feedback messages */
+.message {
+    padding: 10px;
+    margin-top: 10px;
+    margin-bottom: 15px;
+    border-radius: 4px;
+    font-weight: bold;
+    text-align: center;
+    font-size: 0.9em;
+    /* REMOVED: display: none; */
+}
 
-        .form-links a {
-            color: #666666;
-            text-decoration: none;
-            display: block;
-            line-height: 2;
-        }
+/* Style for successful login or action (Green) */
+.success-message {
+    background-color: #d4edda; /* Light green background */
+    color: #155724;           /* Dark green text */
+    border: 1px solid #c3e6cb;
+}
 
-        .form-links a:hover {
-            color: #000000;
-        }
+/* Style for failed login or error (Red/Pink) */
+.error-message {
+    background-color: #f8d7da; /* Light red/pink background */
+    color: #721c24;           /* Dark red text */
+    border: 1px solid #f5c6cb;
+}
+
+/* --- 6. Links Adicionais --- */
+.form-links {
+    margin-top: 30px;
+    font-size: 0.9em;
+}
+
+.form-links a {
+    color: #666666;
+    text-decoration: none;
+    display: block;
+    line-height: 2;
+}
+
+.form-links a:hover {
+    color: #000000;
+}

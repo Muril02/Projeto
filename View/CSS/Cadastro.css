@@ -8,6 +8,8 @@
     --gray-light: #f4f4f4;
     --input-bg: #f7e8e8;
     --text-dark: #333;
+    /* Nova variável para cor de erro */
+    --error-red: #dc3545; 
 }
 
 /* ============================
@@ -47,70 +49,63 @@ body {
 .techfit-logo-text {
     font-size: 3rem;
     font-weight: 900;
-    color: white;
+    color: var(--white);
 }
 
 .techfit-logo-fit {
     color: var(--techfit-yellow);
 }
 
-/* LADO DIREITO */
+/* LADO DIREITO (FORMULÁRIO) */
 .right-section {
-    flex: 1;
-    background: white;
+    flex: 1.5;
+    background: var(--white);
     display: flex;
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
-    padding: 40px;
+    justify-content: center;
+    padding: 40px 20px;
 }
 
-/* ============================
-   FORM WRAPPER
-==================================== */
-.form-wrapper,
-.registration-wrapper {
-    width: 100%;
-    max-width: 400px;
-}
-
-/* TÍTULO */
-.form-title,
-.main-title {
-    font-size: 1.9rem;
+.form-title {
+    font-size: 1.8rem;
     font-weight: 700;
-    text-align: center;
-    margin-bottom: 25px;
-    color: var(--text-dark);
+    color: var(--black);
+    margin-bottom: 30px;
 }
 
 /* ============================
-   FORM INPUTS
+   INPUTS
 ==================================== */
-.form-group {
-    margin-bottom: 18px;
-}
-
-.form-group label {
-    display: block;
-    margin-bottom: 6px;
-    font-size: 0.85rem;
-    font-weight: 600;
-}
-
-input,
-select {
+.input-group {
+    margin-bottom: 20px; 
+    position: relative;
     width: 100%;
-    padding: 12px 15px;
-    border: none;
-    background: var(--input-bg);
-    border-radius: 8px;
-    font-size: 1rem;
-    outline: none;
+    max-width: 400px; /* Adicionado para centralizar e limitar a largura */
 }
 
-input:focus,
-select:focus {
-    border: 2px solid var(--black);
+.input-group input {
+    width: 100%;
+    padding: 15px 15px 15px 45px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-size: 1rem;
+    background: var(--input-bg);
+    color: var(--text-dark);
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+/* ============================
+   ICONES
+==================================== */
+.input-group .icon {
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    color: #999999;
+    font-size: 1.1em;
+    pointer-events: none; /* Garante que o ícone não atrapalhe o clique no input */
 }
 
 /* ============================
@@ -139,6 +134,7 @@ select:focus {
     cursor: pointer;
     margin-top: 10px;
     transition: 0.2s;
+    max-width: 400px; /* Para alinhar com os inputs */
 }
 
 .submit-button:hover {
@@ -151,6 +147,8 @@ select:focus {
 .form-links {
     text-align: center;
     margin-top: 20px;
+    width: 100%;
+    max-width: 400px;
 }
 
 .form-links a {
@@ -168,29 +166,50 @@ select:focus {
 ==================================== */
 .privacy-text,
 .important-text {
-    font-size: 0.75rem;
-    color: #555;
-    margin-top: 10px;
-    text-align: justify;
+    width: 100%;
+    max-width: 400px;
+    font-size: 0.8rem;
+    color: #666;
+    margin: 15px 0;
+    text-align: left;
 }
 
-/* ============================
-   RESPONSIVIDADE
+.privacy-text a {
+    color: var(--black);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+/* ===========================
+   FEEDBACK DE VALIDAÇÃO (UX)
 ==================================== */
-@media (max-width: 768px) {
-    .split-screen-container {
-        flex-direction: column;
-    }
 
-    .left-section {
-        height: 180px;
-    }
+/* Estilo para inputs que falham na validação (borda vermelha) */
+.input-group input.invalid {
+    border: 2px solid var(--error-red) !important; 
+    box-shadow: 0 0 5px rgba(220, 53, 69, 0.5);
+}
 
-    .techfit-logo-text {
-        font-size: 2.2rem;
-    }
+/* Estilo para o texto de erro */
+.error-text {
+    display: block; /* Inicia como bloco para ocupar o espaço */
+    color: var(--error-red);
+    font-size: 0.8rem;
+    font-weight: 500;
+    margin-top: 5px;
+    text-align: left;
+    padding-left: 5px;
+    /* Remove a margem inferior do input-group para este elemento,
+       pois ele já tem sua própria margem */
+    margin-bottom: -15px; 
+}
 
-    .right-section {
-        padding: 25px;
-    }
+/* Para garantir que a mensagem de erro do servidor também seja visível se necessário */
+.message.error-message {
+    display: block;
+    color: var(--error-red);
+    padding: 10px;
+    border: 1px solid var(--error-red);
+    background-color: #f8d7da; /* Fundo claro para contraste */
+    border-radius: 4px;
 }

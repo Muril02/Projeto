@@ -7,9 +7,21 @@ require_once "../Controller/LoginController.php";
 class ClienteController{
 
     public function InserirCliente($nome, $dt_nasc, $telefone, $email, $senha, $cpf){
+        
+        // =======================================================
+        // MANTIDO: Conversão da Data de Nascimento
+        // =======================================================
+        $date_obj = DateTime::createFromFormat('d/m/Y', $dt_nasc);
+        
+        if ($date_obj) {
+            $dt_nasc_mysql = $date_obj->format('Y-m-d');
+        } else {
+            $dt_nasc_mysql = null; 
+        }
+
         $cliente = new ClienteModel(
             $nome,
-            $dt_nasc,
+            $dt_nasc_mysql, 
             $telefone,
             $email,
             $senha,
@@ -18,16 +30,9 @@ class ClienteController{
         );
 
         $DAO = new ClienteDAO();
-        $DAO->InsertCliente($cliente);
-        // header("Location: /Login.php");
-        // exit();
         
-        // if($DAO->InsertCliente($cliente) == true){
-        //     header("Location: " . $_SERVER['PHP_SELF']);
-        //     exit();
-        // }else{
-            
-        // }
+        // MUDANÇA: Retorna o resultado da inserção (true/false)
+        return $DAO->InsertCliente($cliente);
     }
 
     public function ExcluirConta($id){
@@ -50,10 +55,21 @@ class ClienteController{
 
     public function Alterar($Nome, $Cpf, $Email, $Telefone, $Dt_nasc, $Id){
 
+        // =======================================================
+        // MANTIDO: Aplicando a mesma conversão para a função Alterar()
+        // =======================================================
+        $date_obj = DateTime::createFromFormat('d/m/Y', $Dt_nasc);
+        
+        if ($date_obj) {
+            $dt_nasc_mysql = $date_obj->format('Y-m-d');
+        } else {
+            $dt_nasc_mysql = null; 
+        }
+        
         $Model = new ClienteDAO();
         $result = $Model->AtualizarCliente($Id,
          $Nome,
-          $Dt_nasc,
+          $dt_nasc_mysql, 
            $Telefone,
            $Email,
            $Cpf
@@ -72,11 +88,9 @@ class ClienteController{
 
 
         $Model = new ClienteDAO();
-        $result = $Model->AtualizarSenha($Id,
-         $SenhaNova
-         );
-         
-         if($result){
+        $result = $Model->AtualizarSenha($Id, $SenhaNova);
+
+        if($result){
             header("Location: /Perfil.php");
             exit();
          }else{
@@ -84,6 +98,22 @@ class ClienteController{
             exit();
          }
     }
+}
 
-
+if(isset($_POST['acao'])){
+    switch($_POST['acao']){
+        // REMOVIDO: O case 'criar' foi removido daqui para evitar a duplicação.
+        // Ele agora será chamado apenas no Cadastro.php.
+        case 'alterar':
+            $controller = new ClienteController();
+            $controller->Alterar(
+                $_POST['nome'],
+                $_POST['cpf'],
+                $_POST['email'],
+                $_POST['telefone'],
+                $_POST['dt_nasc'],
+                $_SESSION['IdUsuario']
+            );
+            break;
+    }
 }

@@ -14,20 +14,27 @@ class LoginController{
         $senha = $_POST['senha'];
 
         $LoginModel = new LoginModel();
+        // The ListarClienteEmail method will set $_SESSION['Error'] if login fails.
         $LoginSucesso = $LoginModel->ListarClienteEmail($email, $senha);
 
         if($LoginSucesso){
-             header("Location: /index.php");
+             // MUDANÇA AQUI: Define a mensagem de sucesso e redireciona para o próprio Login.php
+             // O Login.php agora tem um meta refresh para redirecionar para /index.php após 3s
+             $_SESSION['Success'] = "Login realizado com sucesso! Bem-vindo(a).";
+             header("Location: /Login.php"); 
              exit;
         }else{
-           header("Location: /Login.php");
+           // The error message is already set in LoginModel.php
+           header("Location: /Login.php"); 
            exit;
         }
     }
     
     public function Sair(){
        session_unset();
-       header("Location: ../Login.php");
+       // Add a message for successful logout
+       $_SESSION['Success'] = "Você desconectou com sucesso.";
+       header("Location: Login.php");
        exit();
     }
 }
@@ -44,5 +51,3 @@ if(isset($_POST['acao'])){
             break;
     }
 }
-
-
