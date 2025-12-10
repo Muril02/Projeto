@@ -17,17 +17,55 @@
 <body>
     <div class="page-wrapper">
     
-        <header class="main-header">
-            <a href="index.php" class="logo">
-                TECH<span class="logo-accent">FIT</span>
-            </a>
-            <nav class="main-nav">
-                <a href="Detalhes.php">Planos</a> 
-                <a href="Agendar.php">Agendar</a> 
-                <a href="index.php">Voltar</a> 
-                <a href="Perfil.php" class="nav-button">Perfil</a> 
-            </nav>
-        </header>
+         <header>
+        <nav class="navbar navbar-expand">
+            <div class="container">
+                <a class="navbar-brand" href="index.php"><span class="logo-highlight">TECH FIT</span></a>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav ms-auto align-items-center">
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="Detalhes.php">Planos</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="Agendar.php">Agendar</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-white" href="Sobre.php">Sobre nós</a>
+                        </li>
+                        <li class="nav-item ms-lg-3">
+                            <div class="dropdown">
+                              
+
+                                <ul class="dropdown-menu dropdown-menu-end">
+                                    <li><a class="dropdown-item" href="Perfil.php">Minhas Informações</a></li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+
+                                    <li>
+                                        <form action="../Controller/LoginController.php" method="POST" class="d-inline">
+                                            <input type="hidden" name="acao" value="sair">
+                                            <button type="submit" class="dropdown-item sair-link">
+                                                <i class="bi bi-box-arrow-right me-2"></i> Sair
+                                            </button>
+                                        </form>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="nav-item ms-lg-2">
+
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
 
         <main class="main-content">
             <h1 class="main-title">Encontre<br>o plano que combina com você!</h1>

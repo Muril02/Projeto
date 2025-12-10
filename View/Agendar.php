@@ -24,13 +24,34 @@
             color: var(--cor-texto-escuro);
         }
 
-        /* --- Header / Navbar --- */
-        .navbar {
-            background-color: var(--cor-primaria);
-            padding: 15px 0;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-        }
         
+    /* --- Cabeçalho e Navegação --- */
+    .navbar {
+        padding-top: 1.5rem;
+        padding-bottom: 1.5rem;
+        background-color: var(--text-color);
+        /* Fundo do Header: PRETO SÓLIDO */
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+        /* Sombra Escura no Header */
+    }
+
+    .navbar-brand {
+        font-size: 1.8rem;
+        font-weight: bold;
+        color: var(--logo-light);
+        /* Cor padrão para a logo: Branco */
+        position: relative;
+    }
+
+    .navbar-brand::after {
+        content: none;
+        display: none;
+    }
+
+    .navbar-brand .logo-highlight {
+        color: var(--primary-color);
+    }
+
         .logo-techfit-text {
             font-size: 1.8rem;
             font-weight: bold;
@@ -318,23 +339,45 @@
     <header>
         <nav class="navbar navbar-expand-lg">
             <div class="container">
-                <a class="navbar-brand logo-techfit-text" href="index.php">
-                    <span class="tech">TECH</span><span class="fit">FIT</span>
-                </a> 
-                
-                <div class="collapse navbar-collapse d-flex justify-content-end" id="navbarNavDropdown">
-                    <ul class="navbar-nav align-items-center">
+                <a class="navbar-brand" href="#"><span class="logo-highlight">TECH FIT</span></a>
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarNavDropdown">
+                    <ul class="navbar-nav ms-auto align-items-center">
                         <li class="nav-item">
-                            <a class="nav-link" href="Detralhes.php">Planos</a>
+                            <a class="nav-link text-white" href="Detalhes.php">Planos</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="Agendar.php">Agendar</a>
-                        </li>
-                        <li class="nav-item me-3">
-                            <a class="nav-link" href="index.php">Voltar</a>
+                            <a class="nav-link text-white" href="Agendar.php">Agendar</a>
                         </li>
                         <li class="nav-item">
-                            <a class="btn-busca-academia" href="Perfil.php">Meu perfil </a>
+                            <a class="nav-link text-white" href="Sobre.php">Sobre nós</a>
+                        </li>
+                        <li class="nav-item ms-lg-3">
+                            <div class="dropdown">
+
+                                <ul class="dropdown-menu dropdown-menu-end">
+                                    <li><a class="dropdown-item" href="Perfil.php">Minhas Informações</a></li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+
+                                    <li>
+                                        <form action="../Controller/LoginController.php" method="POST" class="d-inline">
+                                            <input type="hidden" name="acao" value="sair">
+                                            <button type="submit" class="dropdown-item sair-link">
+                                                <i class="bi bi-box-arrow-right me-2"></i> Sair
+                                            </button>
+                                        </form>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="nav-item ms-lg-2">
+
                         </li>
                     </ul>
                 </div>

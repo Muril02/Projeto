@@ -29,7 +29,7 @@ elseif (isset($_SESSION['Error'])) {
     <title>Faça seu Cadastro - TECHFIT</title>
     
     <?php if (isset($_SESSION['Success'])): ?>
-    <meta http-equiv="refresh" content="3;url=/index.php">
+    <meta http-equiv="refresh" content="2;url=/index.php">
     <?php 
     // Limpa a mensagem de sucesso *após* definir a tag meta, para que ela não persista.
     unset($_SESSION['Success']); 

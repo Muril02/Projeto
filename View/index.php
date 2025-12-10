@@ -2,17 +2,35 @@
 session_start();
 require_once "../Controller/LoginController.php";
 require_once "../Model/LoginModel.php";
+require_once "../Controller/ClienteController.php"; // Certifique-se de incluir o ClienteController.php
 
 // Verifica se o usuário está logado
-if(!isset($_SESSION['IdUsuario'])){
+if (!isset($_SESSION['IdUsuario'])) {
+    // ... lógica de redirecionamento se não estiver logado ...
     $_SESSION['mensagem_erro'] = "Você precisa fazer login para acessar esta página.";
     header("Location: Login.php");
     exit();
+}
+
+// NOVO CÓDIGO PARA PEGAR O NOME DO USUÁRIO
+$nome_usuario = "Minha Conta"; // Texto padrão
+if (isset($_SESSION['IdUsuario'])) {
+    $controller = new ClienteController();
+    $cliente = $controller->ListarClientePorId($_SESSION['IdUsuario']); // Usa o método de busca por ID
+
+    if ($cliente && isset($cliente['nome'])) {
+        // Pega apenas o primeiro nome para exibir no botão
+        $nome_completo = $cliente['nome'];
+        $nome_usuario = explode(' ', trim($nome_completo))[0];
+    } else {
+        $nome_usuario = "Usuário";
+    }
 }
 ?>
 
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -21,13 +39,14 @@ if(!isset($_SESSION['IdUsuario'])){
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
     <title>TechFit - Home</title>
 </head>
+
 <body>
-    <?php if(isset($_SESSION['mensagem_sucesso'])): ?>
+    <?php if (isset($_SESSION['mensagem_sucesso'])): ?>
         <div class="alert alert-success alert-dismissible fade show position-fixed top-0 start-50 translate-middle-x mt-3" role="alert" style="z-index: 9999; min-width: 300px;">
             <i class="bi bi-check-circle-fill me-2"></i>
-            <?php 
-                echo htmlspecialchars($_SESSION['mensagem_sucesso']); 
-                unset($_SESSION['mensagem_sucesso']);
+            <?php
+            echo htmlspecialchars($_SESSION['mensagem_sucesso']);
+            unset($_SESSION['mensagem_sucesso']);
             ?>
             <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
@@ -36,12 +55,12 @@ if(!isset($_SESSION['IdUsuario'])){
     <header>
         <nav class="navbar navbar-expand-lg">
             <div class="container">
-                <a class="navbar-brand" href="#"><span class="logo-highlight">TECH FIT</span></a> 
-                
+                <a class="navbar-brand" href="#"><span class="logo-highlight">TECH FIT</span></a>
+
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                
+
                 <div class="collapse navbar-collapse" id="navbarNavDropdown">
                     <ul class="navbar-nav ms-auto align-items-center">
                         <li class="nav-item">
@@ -54,15 +73,30 @@ if(!isset($_SESSION['IdUsuario'])){
                             <a class="nav-link text-white" href="Sobre.php">Sobre nós</a>
                         </li>
                         <li class="nav-item ms-lg-3">
-                            <a href="Perfil.php" class="btn-busca-academia btn-sm">Meu Perfil</a>
+                            <div class="dropdown">
+                                <button class="btn btn-warning custom-account-button dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <i class="bi bi-person-circle me-2"></i> <?php echo htmlspecialchars($nome_usuario); ?>
+                                </button>
+
+                                <ul class="dropdown-menu dropdown-menu-end">
+                                    <li><a class="dropdown-item" href="Perfil.php">Minhas Informações</a></li>
+                                    <li>
+                                        <hr class="dropdown-divider">
+                                    </li>
+
+                                    <li>
+                                        <form action="../Controller/LoginController.php" method="POST" class="d-inline">
+                                            <input type="hidden" name="acao" value="sair">
+                                            <button type="submit" class="dropdown-item sair-link">
+                                                <i class="bi bi-box-arrow-right me-2"></i> Sair
+                                            </button>
+                                        </form>
+                                    </li>
+                                </ul>
+                            </div>
                         </li>
                         <li class="nav-item ms-lg-2">
-                            <form action="../Controller/LoginController.php" method="post" style="display: inline;">
-                                <input type="hidden" name="acao" value="sair">
-                                <button type="submit" class="btn btn-busca-academia btn-sm text-white">
-                                    <i class="bi bi-box-arrow-right"></i> Sair
-                                </button>
-                            </form>
+
                         </li>
                     </ul>
                 </div>
@@ -81,7 +115,7 @@ if(!isset($_SESSION['IdUsuario'])){
                 <div class="col-lg-6 d-none d-lg-block"></div>
             </div>
         </div>
-        
+
         <div class="img-principal-wrapper">
             <img src="Img/treinando.avif" alt="Homem fazendo agachamento com saco de areia" class="img-principal">
         </div>
@@ -89,7 +123,7 @@ if(!isset($_SESSION['IdUsuario'])){
         <a href="https://wa.me/" class="whatsapp-icon" target="_blank">
             <i class="bi bi-whatsapp"></i>
         </a>
-        
+
         <div class="container content-section">
             <div class="row d-flex align-items-center mb-5">
                 <div class="col-lg-6 col-md-12">
@@ -214,7 +248,7 @@ if(!isset($_SESSION['IdUsuario'])){
                     <p>Telefone: 19 4002-8922</p>
                     <p>Email: <a href="mailto:techfit@gmail.com">techfit@gmail.com</a></p>
                 </div>
-                
+
                 <div class="col-md-4 text-center mb-4 mb-md-0">
                     <h4>Redes Sociais</h4>
                     <a href="#"><i class="bi bi-instagram"></i></a>
@@ -222,10 +256,10 @@ if(!isset($_SESSION['IdUsuario'])){
                     <a href="#"><i class="bi bi-facebook"></i></a>
                     <a href="#"><i class="bi bi-linkedin"></i></a>
                 </div>
-                
+
                 <div class="col-md-4 text-center d-none d-md-block"></div>
             </div>
-            
+
             <div class="text-center mt-4">
                 <p>&copy; 2025 TechFit. Todos os direitos reservados.</p>
             </div>
@@ -244,4 +278,5 @@ if(!isset($_SESSION['IdUsuario'])){
         }, 5000);
     </script>
 </body>
+
 </html>

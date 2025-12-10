@@ -1,347 +1,366 @@
 /* ==================================== */
-        /* VARIÁVEIS DE COR TECHFIT */
-        /* ==================================== */
-        :root {
-            --cor-primaria: #000000; /* Preto */
-            --cor-secundaria: #ffcc00; /* Amarelo (Logo/Botões) */
-            --cor-texto-claro: #ffffff;
-            --cor-texto-escuro: #222;
-            --cor-fundo-claro: #ffffff; 
-        }
+/* VARIÁVEIS DE COR TECHFIT */
+/* ==================================== */
+:root {
+    /* Variáveis do Detalhe.css */
+    --primary-color: #ffc107; /* Amarelo/Laranja principal */
+    --text-color: #000000; /* PRETO SÓLIDO para background de navbar/footer */
+    --logo-light: #ffffff; /* Branco Puro para o TECH */
+    
+    /* Variáveis do Detalhes.php/Gerais */
+    --cor-primaria: #000000; /* Preto */
+    --cor-secundaria: #ffcc00; /* Amarelo (Logo/Botões) */
+    --cor-texto-claro: #ffffff;
+    --cor-texto-escuro: #222;
+    --cor-fundo-claro: #ffffff;
+}
 
-        /* ======== RESET E FONTES ======== */
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Poppins', sans-serif;
-        }
+/* ======== RESET E FONTES ======== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
 
-        body {
-            background-color: var(--cor-fundo-claro);
-            color: var(--cor-texto-escuro);
-            line-height: 1.6;
-        }
-        
-        /* Otimização de Layout para o corpo da página */
-        .page-wrapper {
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
+body {
+    background-color: var(--cor-fundo-claro);
+    color: var(--cor-texto-escuro);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
 
-        .main-content {
-            flex-grow: 1; 
-        }
+/* Otimização de Layout para o corpo da página */
+.page-wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
 
-        /* ==================================== */
-        /* CABEÇALHO (NOVO) - Baseado em image_a87f75.png */
-        /* ==================================== */
-        .main-header {
-            background-color: var(--cor-primaria); /* Fundo Preto */
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 40px;
-            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-        }
+.main-content {
+    flex-grow: 1;
+}
 
-        /* LOGO TECHFIT */
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 800;
-            color: var(--cor-texto-claro); 
-            text-decoration: none;
-        }
+/* --- Cabeçalho e Navegação (Sincronizado com index.php) --- */
+.navbar {
+    
+    background-color: var(--text-color);
+    /* Fundo do Header: PRETO SÓLIDO */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    /* Sombra Escura no Header */
+}
 
-        .logo-accent {
-            color: var(--cor-secundaria); 
-        }
+.navbar-brand {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--logo-light);
+    /* Cor padrão para a logo: Branco */
+    position: relative;
+}
 
-        /* Navegação */
-        .main-nav {
-            display: flex;
-            align-items: center;
-            /* Garante que o Entrar fique na extrema direita */
-            flex-grow: 1; 
-            justify-content: flex-end; 
-        }
-        
-        /* Links de Navegação */
-        .main-nav a {
-            text-decoration: none;
-            color: var(--cor-texto-claro);
-            font-weight: 500;
-            margin-left: 25px;
-            transition: color 0.3s;
-            padding: 5px 0;
-        }
+.navbar-brand::after {
+    content: none;
+    display: none;
+}
 
-        .main-nav a:hover:not(.nav-button) {
-            color: var(--cor-secundaria); 
-        }
-        
-        /* Botão "Entrar" (Amarelo em destaque) */
-        .main-nav .nav-button {
-            background-color: var(--cor-secundaria);
-            color: var(--cor-primaria) !important;
-            padding: 10px 20px;
-            border-radius: 5px; /* Quadrado, como na imagem a87f75.png */
-            font-weight: 600;
-            margin-left: 35px; /* Mais espaço para separação visual */
-            transition: background 0.3s;
-            line-height: 1;
-            text-align: center;
-        }
+.navbar-brand .logo-highlight {
+    color: var(--primary-color);
+}
 
-        .main-nav .nav-button:hover {
-            background-color: #e09e00;
-            color: var(--cor-primaria) !important;
-        }
-        
-        /* ======== CONTEÚDO PRINCIPAL (MANTIDO) ======== */
-        .main-content {
-            text-align: center;
-            padding: 50px 20px;
-        }
+/* SOLUÇÃO para manter o logo visível no hover */
+.navbar-brand:hover {
+    color: var(--logo-light);
+}
 
-        .main-title {
-            font-size: 2rem;
-            font-weight: 700;
-            margin-bottom: 40px;
-            line-height: 1.2;
-        }
+.navbar-brand:hover .logo-highlight {
+    color: var(--primary-color);
+}
+/* FIM SOLUÇÃO para manter o logo visível no hover */
 
-        /* BARRA DE PESQUISA */
-        .search-section {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 15px;
-            margin-bottom: 40px;
-        }
+.nav-link {
+    color: white;
+    /* Links na barra preta devem ser brancos */
+    font-size: 1rem;
+    padding: 0 1.5rem !important;
+    transition: color 0.3s;
+}
 
-        .search-bar {
-            display: flex;
-            align-items: center;
-            border: 1px solid #ccc;
-            border-radius: 25px;
-            padding: 10px 15px;
-            width: 100%; 
-            max-width: 350px; 
-        }
+.nav-link:hover {
+    color: var(--primary-color);
+}
 
-        .search-icon {
-            color: #999;
-            margin-right: 10px;
-        }
+/* Estilo para o botão de conta para se assemelhar a um botão de ação */
+.custom-account-button {
+    background-color: var(--primary-color) !important; /* Amarelo/Laranja principal */
+    color: var(--text-color) !important; /* Texto preto */
+    border: none !important;
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    transition: background-color 0.3s;
+}
 
-        .search-bar input {
-            border: none;
-            outline: none;
-            width: 100%;
-            font-size: 0.9rem;
-        }
+.custom-account-button:hover {
+    /* Escurece a cor no hover */
+    filter: brightness(0.9);
+}
 
-        .filter-button {
-            background-color: var(--cor-secundaria);
-            border: none;
-            color: var(--cor-primaria); 
-            padding: 10px 20px;
-            border-radius: 25px;
-            cursor: pointer;
-            font-weight: 600;
-            transition: background 0.3s;
-        }
+/* Garante que o botão de submit "Sair" dentro do dropdown se comporte como um item de menu */
+.sair-link {
+    width: 100%;
+    text-align: left;
+    border: none;
+    /* Remove o padding padrão do botão para usar o do dropdown-item */
+    padding: var(--bs-dropdown-item-padding-y) var(--bs-dropdown-item-padding-x); 
+    background: transparent;
+    color: var(--bs-dropdown-link-color); /* Usa a cor de texto padrão do dropdown */
+}
 
-        .filter-button:hover {
-            background-color: #e09e00;
-        }
+.sair-link:hover {
+    /* Aplica o estilo de hover do dropdown-item */
+    background-color: var(--bs-dropdown-link-hover-bg, #f8f9fa); 
+    color: var(--bs-dropdown-link-hover-color, #1e2125);
+}
 
-        /* CARDS */
-        .class-cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-            justify-content: center;
-            max-width: 1100px;
-            margin: 0 auto;
-        }
+/* --- Conteúdo Principal (mantido) --- */
+.main-content {
+    text-align: center;
+    padding: 50px 20px;
+}
 
-        .card {
-            background-color: #fff;
-            border: 1px solid #e0e0e0;
-            border-radius: 15px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-            text-align: left;
-            padding: 25px;
-            transition: all 0.3s ease;
-        }
+.main-title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 40px;
+    line-height: 1.2;
+}
 
-        .card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 6px 20px rgba(0,0,0,0.1);
-        }
+/* BARRA DE PESQUISA */
+.search-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 40px;
+}
 
-        .card-header {
-            font-size: 1.2rem;
-            font-weight: 700;
-            color: #111;
-            margin-bottom: 15px;
-        }
+.search-bar {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ccc;
+    border-radius: 25px;
+    padding: 10px 15px;
+    width: 100%;
+    max-width: 350px;
+}
 
-        .card-body p {
-            font-size: 0.9rem;
-            color: #444;
-            margin-bottom: 8px;
-        }
+.search-icon {
+    color: #999;
+    margin-right: 10px;
+}
 
-        .value strong {
-            font-size: 1.1rem;
-            color: #000;
-        }
+.search-bar input {
+    border: none;
+    outline: none;
+    width: 100%;
+    font-size: 0.9rem;
+}
 
-        /* CARD DESTACADO (Plano Básico) */
-        .card:first-of-type {
-            background-color: #e7ca86; 
-            border: 2px solid var(--cor-secundaria);
-            position: relative;
-        }
-        
-        .card:first-of-type .card-header,
-        .card:first-of-type .card-body p,
-        .card:first-of-type .value strong {
-            color: var(--cor-texto-escuro); 
-        }
+.filter-button {
+    background-color: var(--cor-secundaria);
+    border: none;
+    color: var(--cor-primaria);
+    padding: 10px 20px;
+    border-radius: 25px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background 0.3s;
+}
 
-        .card:first-of-type::before {
-            content: "Mais vantajoso";
-            position: absolute;
-            top: -12px;
-            left: 20px;
-            background-color: var(--cor-secundaria);
-            color: var(--cor-primaria);
-            font-weight: 600;
-            font-size: 0.75rem;
-            padding: 4px 10px;
-            border-radius: 10px;
-        }
+.filter-button:hover {
+    background-color: #e09e00;
+}
 
-        /* BOTÃO */
-        .action-button {
-            margin-top: 15px;
-            width: 100%;
-            padding: 12px 0;
-            border: none;
-            border-radius: 25px;
-            background-color: var(--cor-secundaria);
-            color: var(--cor-primaria);
-            font-weight: 600;
-            cursor: pointer;
-            transition: background 0.3s;
-        }
+/* CARDS */
+.class-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    justify-content: center;
+    max-width: 1100px;
+    margin: 0 auto;
+}
 
-        .action-button:hover {
-            background-color: #e09e00;
-        }
+.card {
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 15px;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    text-align: left;
+    padding: 25px;
+    transition: all 0.3s ease;
+}
 
-        /* ==================================== */
-        /* RODAPÉ (Consistente com image_a87f32.png) */
-        /* ==================================== */
-        .footer-dark {
-            background-color: var(--cor-primaria);
-            color: var(--cor-texto-claro);
-            padding: 30px 40px; /* Aumentei o padding lateral */
-            margin-top: 60px;
-            text-align: center; 
-        }
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+}
 
-        .footer-content {
-             display: flex;
-             justify-content: space-between; /* Espaçamento entre Contato e Redes Sociais */
-             align-items: flex-start;
-             max-width: 1200px;
-             margin: 0 auto;
-        }
+.card-header {
+    font-size: 1.2rem;
+    font-weight: 700;
+    color: #111;
+    margin-bottom: 15px;
+}
 
-        .footer-dark h4 {
-            color: var(--cor-texto-claro); /* Branco, como na imagem */
-            font-weight: bold;
-            font-size: 1.2rem;
-            margin-bottom: 15px;
-        }
-        
-        /* Ajuste do telefone e email para cor clara/amarela */
-        .footer-dark p {
-            margin-bottom: 5px;
-            line-height: 1.5;
-            color: var(--cor-texto-claro);
-            font-size: 1rem;
-        }
+.card-body p {
+    font-size: 0.9rem;
+    color: #444;
+    margin-bottom: 8px;
+}
 
-        .footer-dark a {
-            color: var(--cor-secundaria) !important; /* Amarelo no email */
-            text-decoration: none;
-            transition: color 0.3s;
-        }
-        
-        .footer-dark a:hover {
-             color: #ff9900 !important;
-        }
+.value strong {
+    font-size: 1.1rem;
+    color: #000;
+}
 
-        /* Estilo dos ícones de redes sociais */
-        .social-icons-list {
-            display: flex;
-            gap: 10px;
-            padding: 0;
-            list-style: none;
-        }
+/* CARD DESTACADO (Plano Básico) */
+.card:first-of-type {
+    background-color: #e7ca86;
+    border: 2px solid var(--cor-secundaria);
+    position: relative;
+}
 
-        .social-icons-list a {
-            color: var(--cor-primaria); /* Preto do fundo */
-            font-size: 1.1rem;
-            background: var(--cor-texto-claro); /* Fundo branco */
-            width: 35px;
-            height: 35px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: background 0.3s;
-            margin: 0;
-        }
-        
-        .social-icons-list a:hover {
-            background-color: var(--cor-secundaria); /* Hover amarelo */
-        }
-        
-        /* Ajuste Responsivo */
-        @media (max-width: 800px) {
-            .main-header {
-                padding: 15px 20px;
-            }
-            .main-nav a {
-                margin-left: 15px;
-            }
-            .main-nav .nav-button {
-                margin-left: 20px;
-                padding: 8px 15px;
-            }
-            .footer-dark {
-                padding: 30px 20px;
-            }
-            .footer-content {
-                flex-direction: column;
-                align-items: center;
-                gap: 30px;
-            }
-            .footer-content > div {
-                 text-align: center;
-            }
-            .social-icons-list {
-                justify-content: center;
-            }
-            .main-title {
-                font-size: 2.5rem;
-            }
-        }
+.card:first-of-type .card-header,
+.card:first-of-type .card-body p,
+.card:first-of-type .value strong {
+    color: var(--cor-texto-escuro);
+}
+
+.card:first-of-type::before {
+    content: "Mais vantajoso";
+    position: absolute;
+    top: -12px;
+    left: 20px;
+    background-color: var(--cor-secundaria);
+    color: var(--cor-primaria);
+    font-weight: 600;
+    font-size: 0.75rem;
+    padding: 4px 10px;
+    border-radius: 10px;
+}
+
+/* BOTÃO */
+.action-button {
+    margin-top: 15px;
+    width: 100%;
+    padding: 12px 0;
+    border: none;
+    border-radius: 25px;
+    background-color: var(--cor-secundaria);
+    color: var(--cor-primaria);
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.action-button:hover {
+    background-color: #e09e00;
+}
+
+/* ==================================== */
+/* RODAPÉ (Consistente com Detalhes.php) */
+/* ==================================== */
+.footer-dark {
+    background-color: var(--cor-primaria);
+    color: var(--cor-texto-claro);
+    padding: 30px 40px;
+    margin-top: 60px;
+    text-align: center;
+}
+
+.footer-content {
+     display: flex;
+     justify-content: space-between;
+     align-items: flex-start;
+     max-width: 1200px;
+     margin: 0 auto;
+}
+
+.footer-dark h4 {
+    color: var(--cor-texto-claro);
+    font-weight: bold;
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+}
+
+/* Ajuste do telefone e email para cor clara/amarela */
+.footer-dark p {
+    margin-bottom: 5px;
+    line-height: 1.5;
+    color: var(--cor-texto-claro);
+    font-size: 1rem;
+}
+
+.footer-dark a {
+    color: var(--cor-secundaria) !important; /* Amarelo no email */
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-dark a:hover {
+     color: #ff9900 !important;
+}
+
+/* Estilo dos ícones de redes sociais */
+.social-icons-list {
+    display: flex;
+    gap: 10px;
+    padding: 0;
+    list-style: none;
+}
+
+.social-icons-list a {
+    color: var(--cor-primaria); /* Preto do fundo */
+    font-size: 1.1rem;
+    background: var(--cor-texto-claro); /* Fundo branco */
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.3s;
+    margin: 0;
+}
+
+.social-icons-list a:hover {
+    background-color: var(--cor-secundaria); /* Hover amarelo */
+}
+
+/* Ajuste Responsivo */
+@media (max-width: 800px) {
+    .footer-dark {
+        padding: 30px 20px;
+    }
+    .footer-content {
+        flex-direction: column;
+        align-items: center;
+        gap: 30px;
+    }
+    .footer-content > div {
+         text-align: center;
+    }
+    .social-icons-list {
+        justify-content: center;
+    }
+    .main-title {
+        font-size: 2.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar-brand {
+        font-size: 1.5rem;
+    }
+}

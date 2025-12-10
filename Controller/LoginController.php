@@ -34,7 +34,7 @@ class LoginController{
        session_unset();
        // Add a message for successful logout
        $_SESSION['Success'] = "Você desconectou com sucesso.";
-       header("Location: Login.php");
+       header("Location: /Login.php");
        exit();
     }
 }
