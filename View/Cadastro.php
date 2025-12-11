@@ -207,8 +207,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 let message = '';
                 
                 // Checa se a string está completa com a máscara
-                if (cpfValue.length > 0 && cpfValue.length < 14) {
-                    message = 'CPF incompleto. O formato correto é 999.999.999-99.';
+                if (cpfValue.length > 0 && cpfValue.length < 13) {
+                    message = 'CPF incompleto. O formato correto é 999.999.999-9.';
                     isValid = false;
                 }
                 

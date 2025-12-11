@@ -20,6 +20,12 @@ elseif (isset($_SESSION['Error'])) {
     $message_class = 'error-message';
     unset($_SESSION['Error']); // Clear the message after displaying it
 }
+
+elseif(isset($_SESSION['Excluido'])){
+    $feedback_message = $_SESSION['Excluido'];
+    $message_class = 'error-message';
+    unset($_SESSION['Excluido']);
+}
 ?>
 <!DOCTYPE html>
 <html lang="pt-BR">

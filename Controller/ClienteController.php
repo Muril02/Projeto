@@ -40,10 +40,8 @@ class ClienteController{
         $login = new LoginController();
         $result = $cliente->ExcluirCliente($id);
         
-        
         if($result){
-            $login->Sair();
-            header("Location: /Login.php");
+            $login->ExcluirConta();
             exit();
         }
     }
@@ -94,7 +92,7 @@ class ClienteController{
             header("Location: /Perfil.php");
             exit();
          }else{
-            header("Location: /AlterarInformacoes");
+            header("Location: /AlterarSenha");
             exit();
          }
     }
@@ -102,17 +100,11 @@ class ClienteController{
 
 if(isset($_POST['acao'])){
     switch($_POST['acao']){
-        // REMOVIDO: O case 'criar' foi removido daqui para evitar a duplicação.
-        // Ele agora será chamado apenas no Cadastro.php.
-        case 'alterar':
+        
+        case 'excluirConta':
             $controller = new ClienteController();
-            $controller->Alterar(
-                $_POST['nome'],
-                $_POST['cpf'],
-                $_POST['email'],
-                $_POST['telefone'],
-                $_POST['dt_nasc'],
-                $_SESSION['IdUsuario']
+            $controller->ExcluirConta(
+                $_POST["Id_cliente"]
             );
             break;
     }

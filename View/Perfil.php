@@ -12,6 +12,8 @@ if (isset($_SESSION["IdUsuario"])) {
     $id = $_SESSION["IdUsuario"];
     $usuario = $controller->ListarClientePorId($id);
 }
+
+
 ?>
 
 
@@ -76,21 +78,34 @@ if (isset($_SESSION["IdUsuario"])) {
                             <span class="info-label">CPF:</span> <?php echo $usuario["CPF"]; ?>
                         </div>
                     </div>
-                    <form action="AlterarInformacoes.php" method="post">
-                        <input type="hidden" name="Nome" value="<?php echo $usuario["Nome"] ?>">
-                        <input type="hidden" name="Email" value="<?php echo $usuario["Email"] ?>">
-                        <input type="hidden" name="CPF" value="<?php echo $usuario["CPF"] ?>">
-                        <input type="hidden" name="Telefone" value="<?php echo $usuario["Telefone"] ?>">
-                        <input type="hidden" name="Dt_nasc" value="<?php echo $usuario["Data_nascimento"] ?>">
-                        <input type="hidden" name="Id_cliente" value="<?php echo $usuario["Id_cliente"] ?>">
-                        <input type="hidden" name="acao" value="alterar">
-                        <button type="submit" class="btn btn-voltar ">Alterar informações</button>
-                    </form>
-                    <form action="AlterarSenha.php" method="post">
-                        <input type="hidden" name="acao" value="alterarSenha">
-                        <input type="hidden" name="Id_cliente" value="<?php echo $usuario["Id_cliente"] ?>">
-                        <button type="submit" class="btn btn-voltar mt-1">Alterar senha</button>
-                    </form>
+
+                    <div class="d-flex justify-content-between">
+                        <div>
+                            <form action="AlterarInformacoes.php" method="post">
+                                <input type="hidden" name="Nome" value="<?php echo $usuario["Nome"] ?>">
+                                <input type="hidden" name="Email" value="<?php echo $usuario["Email"] ?>">
+                                <input type="hidden" name="CPF" value="<?php echo $usuario["CPF"] ?>">
+                                <input type="hidden" name="Telefone" value="<?php echo $usuario["Telefone"] ?>">
+                                <input type="hidden" name="Dt_nasc" value="<?php echo $usuario["Data_nascimento"] ?>">
+                                <input type="hidden" name="Id_cliente" value="<?php echo $usuario["Id_cliente"] ?>">
+                                <input type="hidden" name="acao" value="alterar">
+                                <button type="submit" class="btn btn-voltar ">Alterar informações</button>
+                            </form>
+
+                            <form action="AlterarSenha.php" method="post">
+                                <input type="hidden" name="acao" value="alterarSenha">
+                                <input type="hidden" name="Id_cliente" value="<?php echo $usuario["Id_cliente"] ?>">
+                                <button type="submit" class="btn btn-voltar mt-1">Alterar senha</button>
+                            </form>
+                        </div>
+                        <div>
+                            <form action="/Controller/ClienteController.php" method="post">
+                                <input type="hidden" name="acao" value="excluirConta">
+                                <input type="hidden" name="Id_cliente" value="<?php echo $usuario["Id_cliente"] ?>">
+                                <button type="submit" class="btn btn-voltar mt-1">Excluir conta</button>
+                            </form>
+                        </div>
+                    </div>
                     <!-- <form action="../Controller/ClienteController.php" method="post">
                         <input type="hidden" name="acao" value="excluir">
                         <input type="hidden" name="Id_cliente" value="<?php echo $usuario["Id_cliente"] ?>">

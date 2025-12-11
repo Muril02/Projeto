@@ -1,0 +1,179 @@
+/* ============================
+   CORES E VARIÁVEIS (Mantidas de Cadastro.css)
+==================================== */
+:root {
+    --techfit-yellow: #fff200;
+    --black: #000000;
+    --white: #ffffff;
+    --gray-light: #f4f4f4;
+    --input-bg: #f7e8e8;
+    --text-dark: #333;
+    --error-red: #dc3545; 
+}
+
+/* ============================
+   BASE (Mantida de Cadastro.css)
+==================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Poppins", sans-serif;
+    background: var(--gray-light);
+    min-height: 100vh;
+    /* Alinha o conteúdo verticalmente no centro se o body for maior */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* ============================
+   LAYOUT AJUSTADO (Tela Única)
+==================================== */
+
+/* O container não precisa de flex para dividir, mas pode ser um wrapper central */
+.split-screen-container {
+    display: flex;
+    width: 100%;
+    min-height: 100vh; 
+}
+
+/* Ajusta o .right-section para ocupar todo o espaço disponível e centralizar seu conteúdo */
+.right-section {
+    flex: 1; /* Ocupa todo o espaço horizontal */
+    background: var(--white);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* Centraliza verticalmente o form-wrapper */
+    padding: 40px 20px;
+}
+
+/* Wrapper para limitar a largura do formulário, igual ao Cadastro.css */
+.form-wrapper {
+    width: 100%;
+    max-width: 400px;
+}
+
+.form-title {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--black);
+    margin-bottom: 30px;
+    text-align: center; /* Centraliza o título */
+}
+
+/* ============================
+   FORM GROUPS (Ajustado para o HTML de AlterarInformacoes.php)
+==================================== */
+/* O AlterarInformacoes.php usa .form-group em vez de .input-group, mas a estilização pode ser a mesma */
+.form-group {
+    margin-bottom: 20px; 
+    position: relative;
+    width: 100%;
+}
+
+.form-group label {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin-bottom: 5px;
+}
+
+.form-group input {
+    width: 100%;
+    /* Ajuste o padding para não ter espaço para o ícone (que não está no HTML) */
+    padding: 15px 15px; 
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-sizing: border-box;
+    font-size: 1rem;
+    background: var(--input-bg);
+    color: var(--text-dark);
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+/* Se quiser manter o estilo visual de ícones mesmo sem eles (ajuste o padding para inputs) */
+/* .form-group input { padding: 15px 15px 15px 45px; } */ 
+
+/* ============================
+   FEEDBACK E BOTÃO (Mantidos)
+==================================== */
+.message {
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.submit-button {
+    width: 100%;
+    background: black;
+    color: white;
+    font-size: 1.1rem;
+    font-weight: 700;
+    padding: 14px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: 0.2s;
+}
+
+.submit-button:hover {
+    background: #222;
+}
+
+.form-links {
+    text-align: center;
+    margin-top: 20px;
+    width: 100%;
+}
+
+.form-links a {
+    font-size: 0.9rem;
+    color: black;
+    text-decoration: none;
+}
+
+.form-links a:hover {
+    text-decoration: underline;
+}
+
+/* Estilo para validação */
+.form-group input.invalid {
+    border: 2px solid var(--error-red) !important; 
+    box-shadow: 0 0 5px rgba(220, 53, 69, 0.5);
+}
+
+.error-text {
+    display: block; 
+    color: var(--error-red);
+    font-size: 0.8rem;
+    font-weight: 500;
+    margin-top: 5px;
+    text-align: left;
+    padding-left: 5px;
+    margin-bottom: -15px; 
+}
+
+/* O HTML de AlterarInformacoes.php tem o link 'Já tenho uma conta' no final,
+    mas ele não deve aparecer já que o usuário está logado. Se for para 
+    voltar ao Login, o link abaixo está ok.
+    .form-links a { ... }
+*/
+
+/* Media Query para telas pequenas (Ajuste para centralizar em mobile) */
+@media (max-width: 768px) {
+    .split-screen-container {
+        flex-direction: column;
+    }
+    
+    .right-section {
+        min-height: auto;
+    }
+}

@@ -37,6 +37,14 @@ class LoginController{
        header("Location: /Login.php");
        exit();
     }
+
+    public function ExcluirConta(){
+       session_unset();
+       // Add a message for successful logout
+       $_SESSION['Excluido'] = "Você excluiu sua conta com sucesso.";
+       header("Location: /Login.php");
+       exit();
+    }
 }
 
 if(isset($_POST['acao'])){
