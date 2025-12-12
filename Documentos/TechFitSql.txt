@@ -13,7 +13,6 @@ CREATE TABLE Cliente
  idPlano INT
 ); 
 
-select * from Cliente;
 
 CREATE TABLE Agendamento 
 ( 

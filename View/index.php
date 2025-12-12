@@ -4,7 +4,7 @@ require_once "../Controller/LoginController.php";
 require_once "../Model/LoginModel.php";
 require_once "../Controller/ClienteController.php"; // Certifique-se de incluir o ClienteController.php
 
-// Verifica se o usuário está logado
+
 if (!isset($_SESSION['IdUsuario'])) {
     // ... lógica de redirecionamento se não estiver logado ...
     $_SESSION['mensagem_erro'] = "Você precisa fazer login para acessar esta página.";
@@ -12,7 +12,7 @@ if (!isset($_SESSION['IdUsuario'])) {
     exit();
 }
 
-// NOVO CÓDIGO PARA PEGAR O NOME DO USUÁRIO
+
 $nome_usuario = "Minha Conta"; // Texto padrão
 if (isset($_SESSION['IdUsuario'])) {
     $controller = new ClienteController();
@@ -75,7 +75,7 @@ if (isset($_SESSION['IdUsuario'])) {
                         <li class="nav-item ms-lg-3">
                             <div class="dropdown">
                                 <button class="btn btn-warning custom-account-button dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                    <i class="bi bi-person-circle me-2"></i> <?php echo htmlspecialchars($nome_usuario); ?>
+                                    <i class="bi bi-person-circle me-2"></i> Conta
                                 </button>
 
                                 <ul class="dropdown-menu dropdown-menu-end">

@@ -38,26 +38,27 @@
                             <a class="nav-link text-white" href="Sobre.php">Sobre nós</a>
                         </li>
                         <li class="nav-item ms-lg-3">
-                            <div class="dropdown">
-                              
+    <div class="dropdown">
+        <a class="nav-link text-white dropdown-toggle custom-account-button" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Menu da Conta">
+             <i class="bi bi-person-circle"></i> Conta </a>
+        
+        <ul class="dropdown-menu dropdown-menu-end">
+            <li><a class="dropdown-item" href="Perfil.php">Minhas Informações</a></li>
+            <li>
+                <hr class="dropdown-divider">
+            </li>
 
-                                <ul class="dropdown-menu dropdown-menu-end">
-                                    <li><a class="dropdown-item" href="Perfil.php">Minhas Informações</a></li>
-                                    <li>
-                                        <hr class="dropdown-divider">
-                                    </li>
-
-                                    <li>
-                                        <form action="../Controller/LoginController.php" method="POST" class="d-inline">
-                                            <input type="hidden" name="acao" value="sair">
-                                            <button type="submit" class="dropdown-item sair-link">
-                                                <i class="bi bi-box-arrow-right me-2"></i> Sair
-                                            </button>
-                                        </form>
-                                    </li>
-                                </ul>
-                            </div>
-                        </li>
+            <li>
+                <form action="../Controller/LoginController.php" method="POST" class="d-inline">
+                    <input type="hidden" name="acao" value="sair">
+                    <button type="submit" class="dropdown-item sair-link">
+                        <i class="bi bi-box-arrow-right me-2"></i> Sair
+                    </button>
+                </form>
+            </li>
+        </ul>
+    </div>
+</li>
                         <li class="nav-item ms-lg-2">
 
                         </li>

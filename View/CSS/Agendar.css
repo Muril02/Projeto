@@ -1,0 +1,262 @@
+/* --- Variáveis de Cor (Espelhando index.css) --- */
+:root {
+    --primary-color: #ffc107;        /* Amarelo/Laranja principal */
+    --text-color: #000000;           /* PRETO SÓLIDO para background de navbar/footer */
+    --background-color: #f8f9fa;     /* Fundo claro */
+    --logo-light: #ffffff;           /* Branco Puro para o TECH */
+    --main-text-color: #333333;      /* Texto principal */
+    --link-color: #007bff;           /* Cor de link padrão */
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--background-color);
+    color: var(--main-text-color);
+    overflow-x: hidden;
+}
+
+/* --- Cabeçalho e Navegação (Copiado de index.css) --- */
+.navbar {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+    background-color: var(--text-color);
+    /* Fundo do Header: PRETO SÓLIDO */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    /* Sombra Escura no Header */
+}
+
+.navbar-brand {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--logo-light);
+    /* Cor padrão para a logo: Branco */
+    position: relative;
+}
+
+.navbar-brand::after {
+    content: none;
+    display: none;
+}
+
+.navbar-brand .logo-highlight {
+    color: var(--primary-color);
+}
+
+/* SOLUÇÃO para manter o logo visível no hover */
+.navbar-brand:hover {
+    color: var(--logo-light);
+}
+
+.navbar-brand:hover .logo-highlight {
+    color: var(--primary-color);
+}
+/* FIM SOLUÇÃO para manter o logo visível no hover */
+
+.nav-link {
+    color: var(--logo-light);
+    /* Links na barra preta devem ser brancos */
+    font-size: 1rem;
+    padding: 0 1.5rem !important;
+    transition: color 0.3s;
+}
+
+.nav-link:hover {
+    color: var(--primary-color);
+}
+
+/* Link ativo na página Agendar */
+.nav-link.active {
+    color: var(--primary-color) !important;
+    font-weight: bold;
+}
+
+
+/* Botão de Busca Academia */
+.btn-busca-academia {
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    /* Preto sólido */
+    border: none;
+    font-weight: bold;
+    padding: 0.5rem 1.5rem;
+    border-radius: 5px;
+    text-decoration: none;
+    display: inline-block;
+    transition: background-color 0.3s;
+}
+
+.btn-busca-academia:hover {
+    background-color: #e0ac00;
+    color: var(--text-color);
+}
+
+/* Estilo para o botão de conta (Minha Conta / Nome do Usuário) */
+.custom-account-button {
+    background-color: var(--primary-color) !important;
+    color: var(--text-color) !important;
+    border: none !important;
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    transition: background-color 0.3s;
+}
+
+.custom-account-button:hover {
+    filter: brightness(0.9);
+}
+
+/* Garante que o botão de submit "Sair" dentro do dropdown se comporte como um item de menu */
+.sair-link {
+    width: 100%;
+    text-align: left;
+    border: none;
+    padding: var(--bs-dropdown-item-padding-y) var(--bs-dropdown-item-padding-x);
+    background: transparent;
+    color: var(--bs-dropdown-link-color);
+}
+
+.sair-link:hover {
+    background-color: var(--bs-dropdown-link-hover-bg, #f8f9fa);
+    color: var(--bs-dropdown-link-hover-color, #1e2125);
+}
+
+/* Estilo para "Entrar" (Botão Amarelo/Preto) */
+.btn-entrar {
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    font-weight: 700;
+    padding: 10px 25px;
+    border-radius: 8px;
+    text-decoration: none;
+    border: none;
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.btn-entrar:hover {
+    background-color: #ffcc4c; 
+    box-shadow: 0 0 15px rgba(255, 184, 0, 0.6);
+}
+
+/* --- Fim do Cabeçalho --- */
+
+/* --- Estilos do Conteúdo (Atualizado para novas variáveis) --- */
+
+.card {
+    border: none;
+    border-radius: 15px;
+}
+
+.card-title {
+    color: var(--text-color);
+    font-weight: 700;
+}
+
+.form-label {
+    font-weight: 600;
+    color: var(--main-text-color);
+}
+
+/* Botões de Horário */
+.btn-horario {
+    font-weight: 600;
+    border-radius: 0.5rem;
+    padding: 0.75rem 1rem;
+    min-width: 120px;
+    text-align: center;
+    transition: transform 0.1s, box-shadow 0.2s;
+    border: 1px solid transparent;
+}
+
+.btn-horario:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.btn-horario.selected {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 10px rgba(255, 193, 7, 0.5);
+    transform: scale(1.02);
+}
+
+/* Cores customizadas */
+.btn-success-custom {
+    background-color: #28a745;
+    color: var(--logo-light);
+    border-color: #28a745;
+}
+
+.btn-success-custom:hover {
+    background-color: #218838;
+    color: var(--logo-light);
+    border-color: #1e7e34;
+}
+
+.btn-danger-custom {
+    background-color: #dc3545;
+    color: var(--logo-light);
+    cursor: not-allowed;
+    opacity: 0.6;
+    border: 1px solid #dc3545;
+}
+
+.btn-escolha-academia {
+    /* Mesmo estilo do botão de Busca Academia no header */
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    border: none;
+    font-weight: bold;
+    padding: 1rem 1.5rem;
+    border-radius: 0.5rem;
+    text-decoration: none;
+    display: inline-block;
+    transition: background-color 0.3s;
+    font-size: 1.1rem;
+}
+
+.btn-escolha-academia:hover:not(:disabled) {
+    background-color: #e0ac00;
+    color: var(--text-color);
+}
+
+.btn-escolha-academia:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+
+/* --- Footer (Atualizado para novas variáveis) --- */
+footer {
+    background-color: var(--text-color); /* Preto */
+    color: var(--logo-light); /* Branco */
+    padding: 30px 0;
+    margin-top: 50px;
+    font-size: 0.9em;
+}
+
+footer h4 {
+    color: var(--primary-color); /* Amarelo/Laranja */
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+footer p {
+    margin-bottom: 5px;
+    line-height: 1.5;
+}
+
+footer .bi {
+    font-size: 1.5rem;
+    margin-right: 15px;
+    color: var(--logo-light); /* Branco */
+    transition: color 0.3s;
+}
+
+footer .bi:hover {
+    color: var(--primary-color); /* Amarelo/Laranja */
+}
+
+/* Ajuste do Email para cor da marca */
+footer p a {
+    color: var(--primary-color); /* Amarelo/Laranja */
+    text-decoration: none;
+}

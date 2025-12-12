@@ -1,0 +1,372 @@
+/* --- Variáveis (Adotando a nomenclatura de index.css para consistência) --- */
+:root {
+    --primary-color: #ffb800;        /* Amarelo/Laranja TechFit (Cor de Destaque) */
+    --text-color: #000;              /* Preto Sólido (Cor de Fundo do Header/Footer) */
+    --logo-light: #fff;              /* Branco Sólido (Cor de Texto Principal no Header/Footer) */
+    
+    /* Variáveis adicionais para o conteúdo da página 'Sobre' */
+    --color-text: #333;              /* Cinza Escuro para leitura */
+    --color-light-gray: #f4f4f4;     /* Cinza muito claro para fundo de seções */
+    --color-border-light: #ddd; 
+}
+
+/* ========== RESET E PADRÕES ========== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: var(--logo-light); /* Cor de Fundo Branco */
+    color: var(--color-text); /* Texto principal em cinza escuro */
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+.container {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+/* --- Cabeçalho e Navegação (Espelhando index.css) --- */
+
+.navbar {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+    background-color: var(--text-color);
+    /* Fundo do Header: PRETO SÓLIDO */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    /* Sombra Escura no Header */
+}
+
+.navbar-brand {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: var(--logo-light);
+    /* Cor padrão para a logo: Branco */
+    position: relative;
+}
+
+.navbar-brand::after {
+    content: none;
+    display: none;
+}
+
+.navbar-brand .logo-highlight {
+    color: var(--primary-color);
+}
+
+/* SOLUÇÃO para manter o logo visível no hover */
+.navbar-brand:hover {
+    color: var(--logo-light);
+}
+
+.navbar-brand:hover .logo-highlight {
+    color: var(--primary-color);
+}
+/* FIM SOLUÇÃO para manter o logo visível no hover */
+
+.nav-link {
+    color: var(--logo-light); /* Links na barra preta devem ser brancos */
+    font-size: 1rem;
+    padding: 0 1.5rem !important;
+    transition: color 0.3s;
+}
+
+.nav-link:hover {
+    color: var(--primary-color);
+}
+
+/* Botão "Buscar Academia" (Baseado no .btn-busca-academia de index.css) */
+.btn-busca-academia {
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    /* Preto sólido */
+    border: none;
+    font-weight: bold;
+    padding: 0.5rem 1.5rem;
+    border-radius: 5px;
+    text-decoration: none;
+    display: inline-block;
+    transition: background-color 0.3s;
+}
+
+.btn-busca-academia:hover {
+    background-color: #e0ac00;
+    color: var(--text-color);
+}
+
+/* Estilo para o botão de conta (Minha Conta / Nome do Usuário) */
+.custom-account-button {
+    background-color: var(--primary-color) !important;
+    /* Amarelo/Laranja principal */
+    color: var(--text-color) !important;
+    /* Texto preto */
+    border: none !important;
+    font-weight: bold;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    transition: background-color 0.3s;
+}
+
+.custom-account-button:hover {
+    /* Escurece a cor no hover */
+    filter: brightness(0.9);
+}
+
+/* Garante que o botão de submit "Sair" dentro do dropdown se comporte como um item de menu */
+.sair-link {
+    width: 100%;
+    text-align: left;
+    border: none;
+    /* Usa variáveis do Bootstrap */
+    padding: var(--bs-dropdown-item-padding-y) var(--bs-dropdown-item-padding-x);
+    background: transparent;
+    color: var(--bs-dropdown-link-color);
+}
+
+.sair-link:hover {
+    /* Aplica o estilo de hover do dropdown-item */
+    background-color: var(--bs-dropdown-link-hover-bg, #f8f9fa);
+    color: var(--bs-dropdown-link-hover-color, #1e2125);
+}
+
+/* Estilo para "Entrar" (Botão Amarelo/Preto) */
+.btn-entrar {
+    background-color: var(--primary-color);
+    color: var(--text-color);
+    font-weight: 700;
+    padding: 10px 25px;
+    border-radius: 8px;
+    text-decoration: none;
+    border: none;
+    transition: background-color 0.3s, box-shadow 0.3s;
+}
+
+.btn-entrar:hover {
+    background-color: #ffcc4c; 
+    box-shadow: 0 0 15px rgba(255, 184, 0, 0.6);
+}
+
+/* --- Fim do Cabeçalho --- */
+
+
+/* ========== ESTILOS DE CONTEÚDO DA PÁGINA SOBRE (Adaptado) ========== */
+
+.secao-sobre {
+    padding-top: 60px;
+    padding-bottom: 30px;
+}
+
+.secao-sobre h1 {
+    font-size: 2.8rem;
+    margin-bottom: 10px;
+    color: var(--text-color); /* Usando Preto */
+    font-weight: 700;
+    text-align: center;
+}
+
+.secao-sobre p {
+    font-size: 1.05rem;
+    line-height: 1.7;
+    max-width: 800px;
+    margin: 0 auto 30px auto;
+    text-align: justify;
+}
+
+/* ========== SEÇÃO DE HISTÓRIA / TIMELINE ========== */
+.historia-timeline {
+    padding-top: 50px;
+    padding-bottom: 80px;
+    position: relative;
+}
+
+.timeline-wrapper {
+    position: relative;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.timeline-wrapper .timeline-item:nth-child(odd) {
+    background-color: var(--color-light-gray);
+}
+
+/* Linha vertical */
+.timeline-wrapper::after {
+    content: '';
+    position: absolute;
+    width: 3px;
+    background-color: var(--primary-color); /* Usando Amarelo/Laranja */
+    top: 0;
+    bottom: 0;
+    left: 25%;
+    margin-left: -1.5px;
+    display: none;
+}
+
+.timeline-item {
+    padding: 20px;
+    position: relative;
+    border-bottom: 1px solid var(--color-border-light);
+    margin-bottom: 0;
+}
+
+.timeline-year {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--primary-color); /* Usando Amarelo/Laranja */
+    position: relative;
+    margin-bottom: 10px;
+    text-align: left;
+}
+
+.timeline-content {
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.timeline-title {
+    font-size: 1.5rem;
+    color: var(--text-color); /* Usando Preto */
+    margin-bottom: 10px;
+}
+
+.timeline-content p {
+    font-size: 1rem;
+    color: var(--color-text);
+    line-height: 1.7;
+    text-align: left;
+    margin-bottom: 15px;
+}
+
+/* CORREÇÃO: Responsivo para telas maiores (desktop) com a linha à esquerda */
+@media (min-width: 768px) {
+
+    /* Mostra a linha da Timeline à esquerda: 25% */
+    .timeline-wrapper::after {
+        display: block;
+    }
+
+    .timeline-item {
+        padding: 40px 0;
+        border-bottom: none;
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 5%;
+        position: relative;
+    }
+
+    .timeline-year {
+        font-size: 4rem;
+        width: 25%;
+        position: static;
+        text-align: right;
+        margin-bottom: 0;
+        padding-right: 20px;
+    }
+
+    .timeline-content {
+        width: 70%;
+        padding-left: 20px;
+    }
+
+    /* Círculo de Destaque (Posicionado sobre a linha) */
+    .timeline-item::before {
+        content: '';
+        position: absolute;
+        width: 15px;
+        height: 15px;
+        background-color: var(--primary-color); /* Usando Amarelo/Laranja */
+        border: 3px solid var(--logo-light); /* Usando Branco */
+        border-radius: 50%;
+        z-index: 10;
+        left: 25%;
+        transform: translateX(-50%);
+        top: 50%;
+        margin-top: -7.5px;
+    }
+}
+
+/* ========== RODAPÉ ========== */
+footer {
+    background-color: var(--text-color); /* Usando Preto */
+    color: var(--logo-light); /* Usando Branco */
+    padding: 40px 0;
+    margin-top: 80px;
+}
+
+.footer-conteudo-techfit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    text-align: center;
+}
+
+.footer-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer-section h4 {
+    font-size: 1.2rem;
+    margin-bottom: 20px;
+    color: var(--logo-light); /* Usando Branco */
+    font-weight: 700;
+}
+
+.contact-info p {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 10px;
+    color: var(--logo-light); /* Usando Branco */
+}
+
+.contact-info a {
+    color: var(--primary-color); /* Usando Amarelo/Laranja */
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.social-icons a {
+    background-color: var(--logo-light); /* Usando Branco */
+    color: var(--text-color); /* Usando Preto */
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2rem;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.social-icons a:hover {
+    background-color: #ccc;
+    color: var(--text-color);
+}
+
+@media (min-width: 700px) {
+    .footer-conteudo-techfit {
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    .footer-section {
+        align-items: flex-start;
+    }
+}
